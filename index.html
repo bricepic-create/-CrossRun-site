@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CrossRun — Cours. Croise. Connecte.</title>
-  <meta name="description" content="CrossRun est une application running 100 % gratuite : runners croisés, coach personnel, objectifs, groupes, badges et partage de courses." />
+  <meta name="description" content="CrossRun est une application running 100 % gratuite : runners croisés, Mon Coach, objectifs, groupes, badges et partage de courses." />
   <meta name="theme-color" content="#EAF1F8" />
   <meta property="og:title" content="CrossRun — Cours. Croise. Connecte." />
   <meta property="og:description" content="Découvre une autre façon de vivre tes sorties running." />
@@ -37,11 +37,11 @@
         <p class="hero-lead">CrossRun accompagne tes sorties sans les compliquer. Tu cours, tu progresses, tu retrouves les runners croisés et tu gardes une trace de ce que chaque sortie t’a apporté.</p>
         <div class="editorial-meta">
           <strong>Application 100 % gratuite</strong>
-          <span>Coach personnel · runners croisés · défis personnalisés</span>
+          <span>Mon Coach · runners croisés · défis personnalisés</span>
         </div>
         <div class="hero-actions">
           <a class="secondary-button editorial-main-link" href="./decouvrir/">Découvrir l’application <span>→</span></a>
-          <a class="quiet-link" href="./coach-badges/">Voir le coach personnel</a>
+          <a class="quiet-link" href="./coach-badges/">Voir le Mon Coach</a>
         </div>
       </div>
 
@@ -95,17 +95,34 @@
           <p>CrossRun s’appuie sur les sorties compatibles pour faire apparaître les runners passés au même endroit au même moment. Pas de catalogue de profils au hasard : la rencontre commence par une vraie course.</p>
           <a class="text-link" href="./decouvrir/#croises">Comprendre les runners croisés <span>→</span></a>
         </div>
-        <div class="story-visual map-demo">
-          <div class="map-road road-a"></div>
-          <div class="map-road road-b"></div>
-          <div class="map-road road-c"></div>
-          <div class="map-route"></div>
-          <span class="map-point point-a"><i>L</i></span>
-          <span class="map-point point-b"><i>B</i></span>
-          <div class="map-popover">
-            <small>CROISEMENT DÉTECTÉ</small>
-            <strong>Vous vous êtes croisés ici</strong>
-            <span>18:24 · distance minimale 12 m</span>
+        <div class="story-visual cannes-map-demo" role="img" aria-label="Deux parcours de running se croisent à Cannes près de la Croisette">
+          <div class="cannes-map-label"><small>CANNES · LA CROISETTE</small><strong>Deux parcours. Un vrai croisement.</strong></div>
+          <svg class="cannes-map" viewBox="0 0 760 470" aria-hidden="true">
+            <defs>
+              <filter id="routeGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path class="coast" d="M18 355 C118 330 170 346 248 318 C336 286 409 273 492 228 C579 181 645 128 752 102"/>
+            <path class="street major" d="M26 300 C142 284 217 290 312 255 C420 215 520 184 716 128"/>
+            <path class="street" d="M65 240 C165 248 230 232 310 198 C407 157 504 153 666 98"/>
+            <path class="street" d="M116 385 C176 320 203 264 214 182"/>
+            <path class="street" d="M262 350 C300 290 320 230 334 146"/>
+            <path class="street" d="M424 287 C443 233 461 180 480 118"/>
+            <path class="street" d="M548 219 C572 183 594 147 615 103"/>
+            <path class="runner-route route-blue" d="M52 301 C135 289 213 291 304 258 C388 228 461 207 520 180 C568 158 615 139 692 123"/>
+            <path class="runner-route route-white" d="M144 374 C174 328 193 290 214 249 C239 201 283 185 330 201 C382 220 425 219 470 201 C516 183 558 154 608 118"/>
+            <circle class="crossing-halo" cx="447" cy="210" r="20"/>
+            <circle class="crossing" cx="447" cy="210" r="7"/>
+            <circle class="runner-dot runner-blue" cx="515" cy="182" r="13"/>
+            <circle class="runner-dot runner-white" cx="389" cy="219" r="13"/>
+            <text class="map-place" x="54" y="332">Vieux-Port</text>
+            <text class="map-place" x="286" y="286">Palais des Festivals</text>
+            <text class="map-place" x="530" y="235">La Croisette</text>
+            <text class="sea-label" x="520" y="382">MÉDITERRANÉE</text>
+          </svg>
+          <div class="map-popover cannes-crossing-popover">
+            <small>CROISEMENT DÉTECTÉ · CANNES</small>
+            <strong>Vous vous êtes croisés sur la Croisette</strong>
+            <span>18:24 · deux traces GPS horodatées</span>
           </div>
         </div>
       </div>
@@ -165,7 +182,7 @@
         <a class="explore-link reveal" href="./coach-badges/">
           <span>Coach & badges</span>
           <strong>Plans d’entraînement, objectifs, progression et badges gagnés.</strong>
-          <em>Voir le coach personnel →</em>
+          <em>Voir le Mon Coach →</em>
         </a>
       </div>
     </section>
@@ -175,7 +192,7 @@
         <div>
           <span class="eyebrow">CROSSRUN</span>
           <h2>Application 100 % gratuite.</h2>
-          <p>Coach personnel inclus · runners croisés · défis personnalisés.</p>
+          <p>Mon Coach inclus · runners croisés · défis personnalisés.</p>
         </div>
         <div class="download-actions">
           <a class="store-button is-disabled" data-store="apple" href="#" aria-disabled="true">
