@@ -269,3 +269,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;background:rgba(251,
 @media(max-width:760px){.cannes-map-demo{min-height:420px}.cannes-map-label{left:20px;top:20px}.cannes-crossing-popover{left:18px;right:18px;bottom:18px;max-width:none}}
 
 .real-street-map{background:#f2f4f3}.real-street-map .sea-shape{fill:#d9edf7}.real-street-map .coast-real{fill:none;stroke:#83b9d1;stroke-width:5}.real-street-map .street-real{fill:none;stroke:#c7ced1;stroke-width:2.2;stroke-linecap:round}.real-street-map .street-real.boulevard{stroke:#aeb8bd;stroke-width:4}.real-street-map .street-real.minor{stroke:#d1d6d8;stroke-width:1.5}.real-street-map .road-name{font-size:10px;font-weight:800;fill:#68767c}.real-street-map .runner-route{stroke-width:7}
+
+/* CrossRun identity — concept #8: elongated crossing paths */
+.brand-mark-8{position:relative;display:inline-block;overflow:visible;background:linear-gradient(145deg,#397fe7,#2866d2)!important;border-radius:14px;box-shadow:0 7px 18px rgba(45,111,220,.22)}
+.brand-mark-8:before,.brand-mark-8:after,.brand-mark-8 .cr8-a,.brand-mark-8 .cr8-b{content:"";position:absolute;left:50%;top:50%;height:5px;border-radius:999px;transform-origin:center;background:#fff}
+.brand-mark-8:before{width:25px;transform:translate(-50%,-50%) rotate(34deg)}
+.brand-mark-8:after{width:25px;transform:translate(-50%,-50%) rotate(-34deg)}
+.brand-mark-8 .cr8-a{width:13px;height:4px;transform:translate(3px,-9px) rotate(-13deg);opacity:.96}
+.brand-mark-8 .cr8-b{width:10px;height:4px;transform:translate(-13px,5px) rotate(-13deg);opacity:.96}
