@@ -1,0 +1,20 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "67WMYG23VK.fr.crossrun.app"
+        ],
+        "components": [
+          { "/": "/auth-confirm*", "comment": "Confirmation de compte CrossRun" },
+          { "/": "/reset-password*", "comment": "Réinitialisation du mot de passe" },
+          { "/": "/wearables*", "comment": "Retours des partenaires sportifs" },
+          { "/": "/groups*", "comment": "Groupes CrossRun" },
+          { "/": "/encounters*", "comment": "Croisements CrossRun" },
+          { "/": "/messages/*", "comment": "Conversations CrossRun" },
+          { "/": "/run/*", "comment": "Course et Live Activity CrossRun" }
+        ]
+      }
+    ]
+  }
+}
