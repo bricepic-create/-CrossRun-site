@@ -12,6 +12,7 @@
   <meta property="og:url" content="https://crossrunapp.fr/" />
   <link rel="canonical" href="https://crossrunapp.fr/" />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 </head>
 <body>
   <header class="site-header">
@@ -95,26 +96,11 @@
           <p>CrossRun s’appuie sur les sorties compatibles pour faire apparaître les runners passés au même endroit au même moment. Pas de catalogue de profils au hasard : la rencontre commence par une vraie course.</p>
           <a class="text-link" href="./decouvrir/#croises">Comprendre les runners croisés <span>→</span></a>
         </div>
-        <div class="story-visual cannes-map-demo real-street-map" role="img" aria-label="Deux parcours réels se croisent entre Port Canto et la Croisette à Cannes">
-          <div class="cannes-map-label"><small>CANNES · CROISETTE / POINTE CROISETTE</small><strong>Deux parcours réels. Une portion commune.</strong></div>
-          <svg class="cannes-map" viewBox="0 0 760 470" aria-hidden="true">
-            <path class="sea-shape" d="M0 358 C132 338 222 326 320 292 C425 256 529 213 760 118 L760 470 L0 470 Z"/>
-            <path class="coast-real" d="M0 355 C130 335 220 323 318 289 C423 253 527 210 760 115"/>
-            <path class="street-real boulevard" d="M15 304 C135 291 222 286 316 254 C421 218 525 183 714 128"/>
-            <path class="street-real" d="M52 255 C158 252 228 244 309 216 C402 184 488 157 649 109"/>
-            <path class="street-real" d="M108 207 C186 213 245 205 310 181 C389 152 460 135 573 100"/>
-            <path class="street-real" d="M535 191 C575 158 612 130 655 103 C686 83 711 69 742 56"/>
-            <path class="street-real" d="M563 219 C606 204 644 183 676 157 C704 134 726 113 750 88"/>
-            <path class="street-real minor" d="M158 289 L138 232 M224 273 L204 218 M291 251 L272 198 M369 225 L348 172 M446 199 L425 148 M515 176 L494 127"/>
-            <path class="runner-route route-blue" d="M34 304 C130 294 219 288 315 256 C409 225 500 194 579 169 C623 155 665 143 704 132"/>
-            <path class="runner-route route-white" d="M735 58 C698 80 668 100 638 121 C606 144 579 164 552 184 C523 205 500 216 475 218 C443 220 415 209 388 214 C354 220 327 240 300 260"/>
-            <path class="shared-route" d="M475 218 C502 211 526 198 552 184 C574 172 593 163 612 157"/>
-            <circle class="crossing-halo" cx="552" cy="184" r="20"/><circle class="crossing" cx="552" cy="184" r="7"/>
-            <circle class="runner-dot runner-blue" cx="612" cy="157" r="13"/><circle class="runner-dot runner-white" cx="475" cy="218" r="13"/>
-            <text class="road-name" x="72" y="325">Pantiero / Vieux-Port</text><text class="road-name" x="275" y="281">Palais des Festivals</text><text class="road-name" x="475" y="242">Croisette</text><text class="road-name" x="574" y="201">Port Canto</text><text class="road-name" x="653" y="126">Palm Beach</text><text class="road-name" x="575" y="400">MÉDITERRANÉE</text>
-          </svg>
-          <div class="map-legend"><span><i class="legend-blue"></i>Runner A · Pantiero → Croisette</span><span><i class="legend-dark"></i>Runner B · Gazagnaire → Port Canto</span></div>
-          <div class="map-popover cannes-crossing-popover"><small>CROISEMENT DÉTECTÉ · PORT CANTO</small><strong>Les deux traces se rejoignent sur la Croisette</strong><span>18:24 · portion piétonne commune puis séparation</span></div>
+        <div class="story-visual cannes-map-demo leaflet-demo" aria-label="Deux parcours réels se croisent à Cannes">
+          <div id="cannes-crossing-map" class="real-map"></div>
+          <div class="cannes-map-label map-overlay-title"><small>CANNES · CROISETTE / PORT CANTO</small><strong>Deux parcours réels. Une portion commune.</strong></div>
+          <div class="map-legend real-map-legend"><span><i class="legend-blue"></i>Runner A · Pantiero</span><span><i class="legend-dark"></i>Runner B · Palm Beach</span></div>
+          <div class="map-popover cannes-crossing-popover"><small>CROISEMENT DÉTECTÉ · PORT CANTO</small><strong>Les deux traces se rejoignent sur la Croisette</strong><span>18:24 · traces superposées au vrai fond de carte</span></div>
         </div>
       </div>
 
@@ -206,6 +192,7 @@
       <p class="copyright">© <span id="year"></span> CrossRun</p>
     </div>
   </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="./script.js"></script>
 </body>
 </html>
