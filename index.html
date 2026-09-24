@@ -95,35 +95,27 @@
           <p>CrossRun s’appuie sur les sorties compatibles pour faire apparaître les runners passés au même endroit au même moment. Pas de catalogue de profils au hasard : la rencontre commence par une vraie course.</p>
           <a class="text-link" href="./decouvrir/#croises">Comprendre les runners croisés <span>→</span></a>
         </div>
-        <div class="story-visual cannes-map-demo" role="img" aria-label="Deux parcours de running se croisent à Cannes près de la Croisette">
+        <div class="story-visual cannes-map-demo real-street-map" role="img" aria-label="Deux parcours de running réalistes se croisent sur la Croisette à Cannes">
           <div class="cannes-map-label"><small>CANNES · LA CROISETTE</small><strong>Deux parcours. Un vrai croisement.</strong></div>
           <svg class="cannes-map" viewBox="0 0 760 470" aria-hidden="true">
-            <defs>
-              <filter id="routeGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <path class="coast" d="M18 355 C118 330 170 346 248 318 C336 286 409 273 492 228 C579 181 645 128 752 102"/>
-            <path class="street major" d="M26 300 C142 284 217 290 312 255 C420 215 520 184 716 128"/>
-            <path class="street" d="M65 240 C165 248 230 232 310 198 C407 157 504 153 666 98"/>
-            <path class="street" d="M116 385 C176 320 203 264 214 182"/>
-            <path class="street" d="M262 350 C300 290 320 230 334 146"/>
-            <path class="street" d="M424 287 C443 233 461 180 480 118"/>
-            <path class="street" d="M548 219 C572 183 594 147 615 103"/>
-            <path class="runner-route route-blue" d="M52 301 C135 289 213 291 304 258 C388 228 461 207 520 180 C568 158 615 139 692 123"/>
-            <path class="runner-route route-white" d="M144 374 C174 328 193 290 214 249 C239 201 283 185 330 201 C382 220 425 219 470 201 C516 183 558 154 608 118"/>
-            <circle class="crossing-halo" cx="447" cy="210" r="20"/>
-            <circle class="crossing" cx="447" cy="210" r="7"/>
-            <circle class="runner-dot runner-blue" cx="515" cy="182" r="13"/>
-            <circle class="runner-dot runner-white" cx="389" cy="219" r="13"/>
-            <text class="map-place" x="54" y="332">Vieux-Port</text>
-            <text class="map-place" x="286" y="286">Palais des Festivals</text>
-            <text class="map-place" x="530" y="235">La Croisette</text>
-            <text class="sea-label" x="520" y="382">MÉDITERRANÉE</text>
+            <path class="sea-shape" d="M0 350 C112 331 206 330 310 294 C425 254 535 204 760 120 L760 470 L0 470 Z"/>
+            <path class="coast-real" d="M0 348 C118 328 204 327 309 291 C423 251 535 201 760 117"/>
+            <path class="street-real boulevard" d="M5 294 C126 282 211 282 306 250 C419 212 526 177 742 113"/>
+            <path class="street-real" d="M22 250 C130 246 210 247 292 218 C397 181 507 151 699 95"/>
+            <path class="street-real" d="M70 205 C166 212 229 206 300 178 C390 143 486 125 633 82"/>
+            <path class="street-real" d="M105 370 C140 318 169 276 198 238 C222 207 243 176 260 131"/>
+            <path class="street-real" d="M213 341 C244 294 270 253 290 217 C315 173 336 135 349 96"/>
+            <path class="street-real" d="M330 296 C352 258 373 218 392 181 C413 142 432 111 447 79"/>
+            <path class="street-real" d="M445 252 C467 220 489 188 510 157 C535 120 556 94 579 68"/>
+            <path class="street-real" d="M555 207 C578 181 602 154 626 127 C647 103 667 82 691 61"/>
+            <path class="street-real minor" d="M135 285 L111 235 M177 274 L160 217 M246 255 L226 194 M365 215 L343 157 M480 178 L456 121 M592 140 L567 91"/>
+            <path class="runner-route route-blue" d="M43 296 C129 287 213 285 306 253 C398 221 484 194 561 166 C617 146 666 132 716 119"/>
+            <path class="runner-route route-white" d="M120 356 C148 314 173 278 199 240 C224 205 250 191 283 198 C326 207 359 224 399 217 C443 209 475 185 510 160 C548 133 579 110 613 87"/>
+            <circle class="crossing-halo" cx="452" cy="199" r="20"/><circle class="crossing" cx="452" cy="199" r="7"/>
+            <circle class="runner-dot runner-blue" cx="527" cy="178" r="13"/><circle class="runner-dot runner-white" cx="385" cy="219" r="13"/>
+            <text class="road-name" x="95" y="315">Vieux-Port</text><text class="road-name" x="265" y="275">Palais des Festivals</text><text class="road-name" x="507" y="208">Bd de la Croisette</text><text class="road-name" x="560" y="395">MÉDITERRANÉE</text>
           </svg>
-          <div class="map-popover cannes-crossing-popover">
-            <small>CROISEMENT DÉTECTÉ · CANNES</small>
-            <strong>Vous vous êtes croisés sur la Croisette</strong>
-            <span>18:24 · deux traces GPS horodatées</span>
-          </div>
+          <div class="map-popover cannes-crossing-popover"><small>CROISEMENT DÉTECTÉ · CANNES</small><strong>Vous vous êtes croisés sur la Croisette</strong><span>18:24 · deux traces GPS horodatées</span></div>
         </div>
       </div>
 
