@@ -260,3 +260,10 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;background:rgba(251,
   .explore-link{padding:24px 0;min-height:210px}
   .download-section{padding:58px 0}
 }
+
+/* Cannes map — geographically grounded editorial demo */
+.cannes-map-demo{position:relative;min-height:470px;overflow:hidden;border-radius:30px;background:linear-gradient(145deg,#eef3f7,#dce7ef);border:1px solid rgba(13,21,32,.08);box-shadow:0 24px 70px rgba(18,42,68,.12)}
+.cannes-map-demo:after{content:"";position:absolute;right:-90px;bottom:-120px;width:420px;height:280px;border-radius:50%;background:rgba(88,172,224,.14);transform:rotate(-12deg)}
+.cannes-map-label{position:absolute;z-index:3;left:28px;top:26px;display:flex;flex-direction:column;gap:4px}.cannes-map-label small{font-size:10px;letter-spacing:.16em;font-weight:900;color:#2878d5}.cannes-map-label strong{font-size:18px;color:#101923}
+.cannes-map{position:absolute;inset:0;width:100%;height:100%}.coast{fill:none;stroke:#88bdd9;stroke-width:7;opacity:.72}.street{fill:none;stroke:#b9c6d0;stroke-width:2.2;stroke-linecap:round}.street.major{stroke:#9caeba;stroke-width:4}.runner-route{fill:none;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;filter:url(#routeGlow)}.route-blue{stroke:#247ee8}.route-white{stroke:#ffffff;stroke-width:7}.crossing-halo{fill:rgba(36,126,232,.18);stroke:#247ee8;stroke-width:2}.crossing{fill:#247ee8;stroke:#fff;stroke-width:3}.runner-dot{stroke:#fff;stroke-width:4}.runner-blue{fill:#247ee8}.runner-white{fill:#1d2733}.map-place{font-size:11px;font-weight:800;fill:#667786}.sea-label{font-size:12px;letter-spacing:.22em;font-weight:800;fill:#70a8c7}.cannes-crossing-popover{z-index:4;left:28px;right:auto;bottom:28px;top:auto;max-width:360px}
+@media(max-width:760px){.cannes-map-demo{min-height:420px}.cannes-map-label{left:20px;top:20px}.cannes-crossing-popover{left:18px;right:18px;bottom:18px;max-width:none}}
