@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>Sortie partagée · CrossRun</title>
+    <style>
+      :root { color-scheme: dark; --blue:#1769ff; --bg:#05070a; --card:#0d121a; --strong:#141c28; --border:#263244; --text:#f7faff; --muted:#a9b4c4; --danger:#ff6573; }
+      * { box-sizing: border-box; }
+      body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; background:radial-gradient(circle at 50% 0%,#10244b 0,var(--bg) 42%); color:var(--text); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+      main { width:min(100%,520px); display:grid; gap:18px; }
+      .brand { display:flex; align-items:center; justify-content:space-between; }
+      .wordmark { font-size:14px; font-weight:900; letter-spacing:.22em; line-height:1.1; }
+      .wordmark span { display:block; }
+      .bar { width:34px; height:4px; margin-top:7px; border-radius:999px; background:var(--blue); }
+      .secure { display:flex; align-items:center; gap:7px; color:var(--muted); font-size:12px; font-weight:700; }
+      .card { padding:24px; border:1px solid var(--border); border-radius:26px; background:rgba(13,18,26,.96); box-shadow:0 22px 70px rgba(0,0,0,.35); }
+      .status { display:flex; align-items:center; gap:10px; color:#a8c6ff; font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+      .dot { width:10px; height:10px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 7px rgba(23,105,255,.14); }
+      .dot.stale { background:#f0ad4e; box-shadow:0 0 0 7px rgba(240,173,78,.13); }
+      h1 { margin:22px 0 7px; font-size:clamp(28px,8vw,42px); line-height:1; letter-spacing:-.04em; }
+      p { margin:0; color:var(--muted); line-height:1.55; }
+      .position { margin-top:24px; padding:18px; border-radius:20px; background:var(--strong); }
+      .position strong { display:block; margin-bottom:6px; font-size:18px; }
+      .meta { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
+      .meta div { padding:13px; border:1px solid var(--border); border-radius:16px; }
+      .meta span { display:block; color:var(--muted); font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+      .meta strong { display:block; margin-top:5px; font-variant-numeric:tabular-nums; }
+      .actions { display:grid; gap:10px; margin-top:20px; }
+      a.button { display:flex; align-items:center; justify-content:center; min-height:54px; border-radius:17px; background:var(--blue); color:white; text-decoration:none; font-weight:900; }
+      a.secondary { background:var(--strong); border:1px solid var(--border); }
+      .privacy { padding:0 5px; font-size:12px; text-align:center; }
+      .hidden { display:none !important; }
+      .error { color:var(--danger); }
+      .spinner { width:28px; height:28px; margin:18px auto; border:3px solid var(--border); border-top-color:var(--blue); border-radius:50%; animation:spin .8s linear infinite; }
+      @keyframes spin { to { transform:rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="brand">
+        <div><div class="wordmark"><span>CROSS</span><span>RUN</span></div><div class="bar"></div></div>
+        <div class="secure">🔒 Lien temporaire</div>
+      </div>
+
+      <section class="card" aria-live="polite">
+        <div id="loading"><div class="spinner"></div><p style="text-align:center">Recherche de la sortie partagée…</p></div>
+
+        <div id="content" class="hidden">
+          <div class="status"><span id="status-dot" class="dot"></span><span id="status-label">Position en direct</span></div>
+          <h1 id="runner-name">Sortie CrossRun</h1>
+          <p id="summary">Cette personne a choisi de partager temporairement sa dernière position.</p>
+
+          <div class="position">
+            <strong id="position-title">Position disponible</strong>
+            <p id="position-copy">La position se met à jour automatiquement pendant la course.</p>
+          </div>
+
+          <div class="meta">
+            <div><span>Mise à jour</span><strong id="updated-at">—</strong></div>
+            <div><span>Expiration</span><strong id="expires-at">—</strong></div>
+          </div>
+
+          <div id="actions" class="actions hidden">
+            <a id="apple-link" class="button" target="_blank" rel="noreferrer noopener">Ouvrir dans Plans</a>
+            <a id="google-link" class="button secondary" target="_blank" rel="noreferrer noopener">Ouvrir dans Google Maps</a>
+          </div>
+        </div>
+
+        <div id="unavailable" class="hidden">
+          <div class="status error"><span>●</span><span>Lien indisponible</span></div>
+          <h1>Partage terminé</h1>
+          <p>Ce lien a expiré, a été révoqué par le runner ou n’est pas valide. CrossRun ne conserve aucune carte publique de la sortie.</p>
+        </div>
+      </section>
+
+      <p class="privacy">Seule la dernière position de la course en cours est affichée. La trace complète, le domicile et l’historique restent privés. Ne transfère pas ce lien sans l’accord du runner.</p>
+    </main>
+
+    <script>
+      const SUPABASE_URL = 'https://gmtabfbukfwgdgwdqxue.supabase.co';
+      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdtdGFiZmJ1a2Z3Z2Rnd2RxeHVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcyNDM5NDcsImV4cCI6MjA3MjgxOTk0N30.y1XGuuJMNxj3zlpUkifrux8ayz_28vZAkFFgEzzJ4IE';
+      const token = new URLSearchParams(location.search).get('token') || '';
+      const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+      let refreshTimer;
+
+      const loading = document.querySelector('#loading');
+      const content = document.querySelector('#content');
+      const unavailable = document.querySelector('#unavailable');
+
+      const showUnavailable = () => {
+        loading.classList.add('hidden');
+        content.classList.add('hidden');
+        unavailable.classList.remove('hidden');
+        if (refreshTimer) clearInterval(refreshTimer);
+      };
+
+      const formatTime = (value) => value
+        ? new Date(value).toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' })
+        : 'En attente';
+
+      const render = (data) => {
+        if (!data || !data.available) return showUnavailable();
+        loading.classList.add('hidden');
+        unavailable.classList.add('hidden');
+        content.classList.remove('hidden');
+
+        document.querySelector('#runner-name').textContent = `${data.runner_name || 'Un runner'} court actuellement`;
+        document.querySelector('#updated-at').textContent = formatTime(data.updated_at);
+        document.querySelector('#expires-at').textContent = formatTime(data.expires_at);
+
+        const dot = document.querySelector('#status-dot');
+        const status = document.querySelector('#status-label');
+        dot.classList.toggle('stale', !data.active);
+        status.textContent = data.active ? 'Position en direct' : 'Dernière position connue';
+
+        const latitude = data.latitude == null ? Number.NaN : Number(data.latitude);
+        const longitude = data.longitude == null ? Number.NaN : Number(data.longitude);
+        const hasPosition = Number.isFinite(latitude)
+          && Number.isFinite(longitude)
+          && latitude >= -90
+          && latitude <= 90
+          && longitude >= -180
+          && longitude <= 180;
+        document.querySelector('#position-title').textContent = hasPosition
+          ? data.active ? 'Position mise à jour automatiquement' : 'Signal GPS momentanément interrompu'
+          : 'En attente du premier signal GPS';
+        document.querySelector('#position-copy').textContent = hasPosition
+          ? data.active ? 'Le téléphone du runner envoie une nouvelle position pendant sa course.' : 'La position affichée peut dater de quelques minutes.'
+          : 'Actualise cette page dans quelques instants.';
+
+        const actions = document.querySelector('#actions');
+        actions.classList.toggle('hidden', !hasPosition);
+        if (hasPosition) {
+          const coordinates = `${latitude},${longitude}`;
+          document.querySelector('#apple-link').href = `https://maps.apple.com/?ll=${encodeURIComponent(coordinates)}`;
+          document.querySelector('#google-link').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(coordinates)}`;
+        }
+      };
+
+      const refresh = async () => {
+        if (!uuid.test(token)) return showUnavailable();
+        try {
+          const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_run_safety_share`, {
+            method:'POST',
+            headers:{ 'Content-Type':'application/json', apikey:SUPABASE_KEY },
+            body:JSON.stringify({ p_token:token }),
+            cache:'no-store',
+          });
+          if (!response.ok) throw new Error('request failed');
+          render(await response.json());
+        } catch {
+          loading.classList.add('hidden');
+          content.classList.remove('hidden');
+          document.querySelector('#status-label').textContent = 'Connexion interrompue';
+          document.querySelector('#position-title').textContent = 'Impossible d’actualiser la position';
+          document.querySelector('#position-copy').textContent = 'Vérifie ta connexion. CrossRun réessaiera automatiquement.';
+        }
+      };
+
+      refresh();
+      refreshTimer = setInterval(refresh, 15000);
+    </script>
+  </body>
+</html>
