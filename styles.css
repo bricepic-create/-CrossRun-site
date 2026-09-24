@@ -277,3 +277,6 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;background:rgba(251,
 .brand-mark-8:after{width:25px;transform:translate(-50%,-50%) rotate(-34deg)}
 .brand-mark-8 .cr8-a{width:13px;height:4px;transform:translate(3px,-9px) rotate(-13deg);opacity:.96}
 .brand-mark-8 .cr8-b{width:10px;height:4px;transform:translate(-13px,5px) rotate(-13deg);opacity:.96}
+
+.route-art-cannes{height:105px!important;position:relative;padding-top:4px}.route-art-cannes svg{width:100%;height:78px;overflow:visible}.route-art-cannes .mini-coast{fill:none;stroke:rgba(255,255,255,.25);stroke-width:4}.route-art-cannes .mini-route{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.route-art-cannes circle{fill:#fff}.route-art-cannes small{display:block;margin-top:-2px;color:rgba(255,255,255,.78);font-size:8px;font-weight:800;letter-spacing:.08em}
+.shared-route{fill:none;stroke:#73b6ff;stroke-width:12;stroke-linecap:round;opacity:.32}.map-legend{position:absolute;right:24px;top:28px;z-index:4;display:flex;flex-direction:column;gap:7px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.86);font-size:9px;font-weight:800;color:#52616b}.map-legend span{display:flex;align-items:center;gap:6px}.map-legend i{width:8px;height:8px;border-radius:50%}.legend-blue{background:#247ee8}.legend-dark{background:#1d2733}
