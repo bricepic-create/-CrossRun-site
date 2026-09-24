@@ -282,3 +282,14 @@ footer{border-top:1px solid var(--line);padding:44px 0 56px;background:rgba(251,
 .shared-route{fill:none;stroke:#73b6ff;stroke-width:12;stroke-linecap:round;opacity:.32}.map-legend{position:absolute;right:24px;top:28px;z-index:4;display:flex;flex-direction:column;gap:7px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.86);font-size:9px;font-weight:800;color:#52616b}.map-legend span{display:flex;align-items:center;gap:6px}.map-legend i{width:8px;height:8px;border-radius:50%}.legend-blue{background:#247ee8}.legend-dark{background:#1d2733}
 
 .leaflet-demo{position:relative;min-height:470px;overflow:hidden}.real-map{position:absolute;inset:0;z-index:1}.map-overlay-title{z-index:500;background:rgba(255,255,255,.9);padding:11px 14px;border-radius:14px;box-shadow:0 8px 28px rgba(13,21,32,.12)}.real-map-legend{z-index:500}.leaflet-demo .cannes-crossing-popover{z-index:500}.leaflet-demo .leaflet-control-attribution{font-size:8px;background:rgba(255,255,255,.78)}
+
+/* Mobile polish after real-device review */
+@media(max-width:760px){
+ .leaflet-demo{min-height:390px!important}
+ .map-overlay-title{left:16px!important;right:16px!important;top:14px!important;padding:10px 12px!important;max-width:none!important}
+ .map-overlay-title strong{font-size:16px!important;line-height:1.15}
+ .real-map-legend{top:82px!important;right:16px!important;padding:8px 10px!important;gap:5px!important}
+ .cannes-crossing-popover{left:16px!important;right:16px!important;bottom:16px!important;padding:16px 18px!important}
+ .cannes-crossing-popover strong{font-size:15px!important;line-height:1.2}
+ .leaflet-demo .leaflet-control-attribution{font-size:7px!important;max-width:58%;white-space:normal}
+}
