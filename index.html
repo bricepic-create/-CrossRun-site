@@ -7,7 +7,7 @@
 <meta property="og:title" content="CrossRun — On s'est croisé sur CrossRun">
 <meta property="og:description" content="Une nouvelle façon de courir ensemble. Rejoins les premiers testeurs CrossRun sur iPhone.">
 <meta property="og:type" content="website"><meta property="og:url" content="https://crossrunapp.fr/">
-<link rel="canonical" href="https://crossrunapp.fr/"><link rel="stylesheet" href="./home.css">
+<link rel="canonical" href="https://crossrunapp.fr/"><link rel="stylesheet" href="./home.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoTgF2GJX+Y1oA=" crossorigin="">
 <title>CrossRun — Cours. Croise. Connecte.</title>
 </head>
 <body>
@@ -21,22 +21,24 @@
 <section class="hero wrap">
 <div class="hero-text"><span class="eyebrow"><span class="dot"></span> BÊTA IOS · ACCÈS TESTFLIGHT</span>
 <h1>Cours. Croise.<br><em>Connecte.</em></h1>
-<p class="lead">L'appli running qui transforme tes sorties en rencontres. Suis tes courses, progresse avec ton coach et retrouve les runners croisés.</p>
+<p class="lead">Tu cours, quelqu'un emprunte le même chemin que toi. CrossRun te permet de retrouver les runners croisés pendant tes sorties, puis de faire connaissance.</p>
 <div class="actions"><a class="btn primary" href="#testeurs">Rejoindre l'aventure <span>↗</span></a><a class="btn secondary" href="#concept">Découvrir CrossRun <span>↓</span></a></div>
 <div class="hero-tags"><span>Gratuit</span><span>Actuellement sur iPhone · bientôt sur d’autres smartphones</span></div>
 </div>
-<div class="hero-art" aria-label="Illustration graphique CrossRun : deux trajectoires de course qui se croisent">
-<div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="track track-a"></div><div class="track track-b"></div>
-<div class="art-center"><div class="art-brand">CROSS<span>RUN</span></div><div class="art-caption">ON S'EST CROISÉ SUR CROSSRUN</div></div>
-<div class="art-chip chip-top"><span class="chip-icon">↗</span><div><strong>15,0 km</strong><small>Ta progression</small></div></div>
-<div class="art-chip chip-bottom"><span class="chip-icon">◎</span><div><strong>Runners croisés</strong><small>La course continue après le chrono</small></div></div>
+<div class="hero-map" aria-label="Carte de démonstration montrant deux parcours de runners qui se rejoignent et partagent environ un kilomètre">
+<div class="map-top"><span class="map-live"><span class="dot"></span> DEUX RUNNERS, UN MÊME PARCOURS</span><span class="map-location">Cannes · Exemple</span></div>
+<div id="crossrun-map" class="crossrun-map" role="img" aria-label="Carte réelle de Cannes avec deux tracés illustratifs bleu et corail, et une portion commune d'environ un kilomètre">
+<div class="map-fallback">Deux parcours se croisent à Cannes<br><strong>1 km parcouru ensemble</strong></div>
+</div>
+<div class="map-bottom"><div class="map-legend"><span><i class="route-blue"></i> Runner 1</span><span><i class="route-coral"></i> Runner 2</span></div><div class="overlap-pill">◎ <strong>1 km</strong> de parcours commun</div></div>
+<p class="map-caption">Exemple illustratif sur une vraie carte · tracés de démonstration</p>
 </div>
 </section>
 <section class="features wrap" id="concept">
 <div class="section-heading"><span class="eyebrow">UNE APPLI, TROIS ESSENTIELS</span><h2>Le running, <span>autrement.</span></h2><p class="feature-intro">Tout ce qu'il faut pour courir, progresser et partager tes sorties.</p></div>
 <div class="feature-grid simple-grid" id="fonctionnalites">
 <article class="feature"><span class="feature-icon">↗</span><h3>Cours à ton rythme</h3><p>GPS, distance, chrono, historique et souvenirs de tes courses.</p></article>
-<article class="feature"><span class="feature-icon">◎</span><h3>Retrouve les runners croisés</h3><p>Une rencontre pendant une sortie ? Retrouve-la dans CrossRun.</p></article>
+<article class="feature"><span class="feature-icon">◎</span><h3>Retrouve les runners croisés</h3><p>Vos parcours se croisent ou se rejoignent ? Retrouve les runners rencontrés pendant ta course.</p></article>
 <article class="feature"><span class="feature-icon">✦</span><h3>Progresse ensemble</h3><p>Coach personnel, défis, groupes et badges pour garder la motivation.</p></article>
 </div></section>
 <section class="beta" id="testeurs"><div class="wrap beta-grid">
@@ -49,5 +51,5 @@
 </div></div></section>
 </main>
 <footer><div class="wrap footer"><div><a href="./" class="logo">CROSS<span class="blue">RUN</span></a><p>Courir. Se croiser. Se retrouver.</p></div><div class="footer-links"><a href="./decouvrir/">Découvrir</a><a href="./coach-badges/">Coach & badges</a><a href="./confidentialite/">Confidentialité</a><a href="./assistance/">Assistance</a><a href="mailto:brice.pic@crossrunapp.fr">Contact</a></div><small>© <span id="year">2026</span> CrossRun</small></div></footer>
-<script src="./script.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script><script src="./map-demo.js"></script><script src="./script.js"></script>
 </body></html>
