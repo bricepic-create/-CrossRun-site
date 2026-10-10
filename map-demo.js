@@ -9,9 +9,10 @@
     zoomControl: false, scrollWheelZoom: false, dragging: false,
     touchZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false
   });
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>'
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
   }).addTo(map);
 
   const blue = '#1769FF', coral = '#F07864', together = '#138E60';
@@ -60,5 +61,7 @@
   document.querySelectorAll('[data-shared-distance]').forEach(n=>{n.textContent=km+' km';});
   const all=[...alexBefore,...alexAfter,...julieBefore,...julieAfter,...shared];
   map.fitBounds(L.latLngBounds(all),{padding:[24,24],maxZoom:13});
+  // Refresh layout after the hero section has finished rendering on mobile.
+  requestAnimationFrame(() => map.invalidateSize());
   window.addEventListener('resize',()=>map.invalidateSize());
 })();
