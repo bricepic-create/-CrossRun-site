@@ -43,8 +43,64 @@
       <div class="hero-visual">
         <div class="visual-kicker"><span class="visual-pulse"></span> CANNES · EXEMPLE DE PARCOURS</div>
         <div class="map-panel">
-          <div id="cannes-map" class="cannes-map" role="img" aria-label="Carte réelle de Cannes : Alex et Julie partent à l’est, partagent environ un kilomètre sur la Croisette, puis Alex continue vers le Palais des Festivals et Julie rentre par une boucle.">
-            <div id="map-status" class="map-status">Chargement de la carte de Cannes…</div>
+          <div id="cannes-map" class="cannes-map" role="img" aria-label="Carte de Cannes : Alex et Julie partent à l’est, courent un kilomètre ensemble sur la Croisette, puis Alex continue vers le Palais des Festivals et Julie rentre par une boucle.">
+            <svg id="map-fallback" class="map-fallback" viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <pattern id="city-blocks" width="104" height="68" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+                  <rect width="104" height="68" fill="#f2f3ed"/>
+                  <path d="M0 0H104 M0 68H104 M0 0V68 M104 0V68" fill="none" stroke="#d7ddd8" stroke-width="2"/>
+                  <rect x="10" y="10" width="30" height="17" rx="3" fill="#e8ece4"/>
+                  <rect x="53" y="10" width="39" height="20" rx="3" fill="#e9ede5"/>
+                  <rect x="13" y="39" width="76" height="19" rx="3" fill="#eaeee7"/>
+                </pattern>
+              </defs>
+              <rect width="900" height="520" fill="#edf1ec"/>
+              <path d="M0 0H900V344C817 359 767 394 688 423C601 454 543 431 469 405C381 375 313 354 226 358C146 362 77 397 0 405Z" fill="url(#city-blocks)"/>
+              <path d="M0 405C77 397 146 362 226 358C313 354 381 375 469 405C543 431 601 454 688 423C767 394 817 359 900 344V520H0Z" fill="#bfe2ef"/>
+              <path d="M0 405C77 397 146 362 226 358C313 354 381 375 469 405C543 431 601 454 688 423C767 394 817 359 900 344" fill="none" stroke="#86bfd4" stroke-width="5"/>
+              <path d="M92 70C230 74 363 106 503 151S733 222 866 279" fill="none" stroke="#c5ceca" stroke-width="6"/>
+              <path d="M35 145C175 148 318 184 459 231S678 301 841 350" fill="none" stroke="#c5ceca" stroke-width="5"/>
+              <path d="M55 215C198 218 338 250 470 293S665 356 780 386" fill="none" stroke="#b8c4c1" stroke-width="7"/>
+              <path d="M106 41C92 127 133 212 194 286S259 338 275 364" fill="none" stroke="#cbd3ce" stroke-width="4"/>
+              <path d="M214 28C200 115 239 204 298 285S353 344 369 374" fill="none" stroke="#cbd3ce" stroke-width="4"/>
+              <path d="M324 29C311 113 347 207 408 294S459 363 477 408" fill="none" stroke="#cbd3ce" stroke-width="4"/>
+              <path d="M438 42C428 124 463 222 522 315S568 380 584 433" fill="none" stroke="#cbd3ce" stroke-width="4"/>
+              <path d="M548 59C543 142 576 234 624 326S661 385 675 425" fill="none" stroke="#cbd3ce" stroke-width="4"/>
+              <path d="M665 90C662 161 691 244 728 321S750 365 765 391" fill="none" stroke="#cbd3ce" stroke-width="4"/>
+              <path d="M784 130C784 193 805 252 833 304" fill="none" stroke="#cbd3ce" stroke-width="4"/>
+              <path d="M74 279C221 283 344 314 463 356S627 409 713 412" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M74 279C221 283 344 314 463 356S627 409 713 412" fill="none" stroke="#aab9ba" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M663 397C626 379 591 361 552 347C501 330 448 318 385 308" fill="none" stroke="#ffffff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M663 397C626 379 591 361 552 347C501 330 448 318 385 308" fill="none" stroke="#aab9ba" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M74 279C221 283 344 314 463 356S627 409 713 412" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M74 279C221 283 344 314 463 356S627 409 713 412" fill="none" stroke="#aab9ba" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M790 190L755 206L727 245L692 302L675 360L663 397L626 379L591 361L552 347L501 330L448 318L385 308L329 291L271 281L209 275L151 274L129 235L156 177L254 134L382 130L520 145L659 173L746 184Z" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M790 190L755 206L727 245L692 302L675 360L663 397L626 379L591 361L552 347L501 330L448 318L385 308L329 291L271 281L209 275L151 274L129 235L156 177L254 134L382 130L520 145L659 173L746 184Z" fill="none" stroke="#f05e68" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M820 320L779 339L735 365L694 388L663 397L626 379L591 361L552 347L501 330L448 318L385 308L388 266L428 232L496 225L572 249L650 276L727 301L782 319Z" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M820 320L779 339L735 365L694 388L663 397L626 379L591 361L552 347L501 330L448 318L385 308L388 266L428 232L496 225L572 249L650 276L727 301L782 319Z" fill="none" stroke="#1769ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M663 397L626 379L591 361L552 347L501 330L448 318L385 308" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M663 397L626 379L591 361L552 347L501 330L448 318L385 308" fill="none" stroke="#e5ac12" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="790" cy="190" r="9" fill="#f05e68" stroke="#fff" stroke-width="4"/>
+              <circle cx="820" cy="320" r="9" fill="#1769ff" stroke="#fff" stroke-width="4"/>
+              <circle cx="663" cy="397" r="8" fill="#e5ac12" stroke="#fff" stroke-width="4"/>
+              <circle cx="385" cy="308" r="8" fill="#e5ac12" stroke="#fff" stroke-width="4"/>
+              <rect x="42" y="249" width="142" height="25" rx="7" fill="#fff" opacity=".93"/>
+              <text x="52" y="266" fill="#304357" font-size="13" font-weight="800">Palais des Festivals</text>
+              <rect x="696" y="408" width="126" height="24" rx="7" fill="#fff" opacity=".94"/>
+              <text x="705" y="424" fill="#304357" font-size="12" font-weight="800">Port Pierre Canto</text>
+              <text x="265" y="337" fill="#526577" font-size="13" font-weight="800" transform="rotate(13 265 337)">La Croisette</text>
+              <text x="455" y="171" fill="#7b8b8c" font-size="11" font-weight="700" transform="rotate(13 455 171)">Rue d’Antibes</text>
+              <text x="516" y="470" fill="#5d9fbe" font-size="13" font-weight="800" letter-spacing="2">MER MÉDITERRANÉE</text>
+              <rect x="461" y="343" width="143" height="28" rx="14" fill="#e5ac12"/>
+              <text x="532.5" y="362" text-anchor="middle" fill="#fff" font-size="13" font-weight="900">1 km ensemble</text>
+              <rect x="710" y="151" width="123" height="34" rx="9" fill="#fff" stroke="#f05e68" stroke-width="2"/>
+              <text x="721" y="166" fill="#18283a" font-size="11" font-weight="900">Alex</text>
+              <text x="721" y="178" fill="#68788a" font-size="8" font-weight="700">Départ / retour</text>
+              <rect x="724" y="329" width="123" height="34" rx="9" fill="#fff" stroke="#1769ff" stroke-width="2"/>
+              <text x="735" y="344" fill="#18283a" font-size="11" font-weight="900">Julie</text>
+              <text x="735" y="356" fill="#68788a" font-size="8" font-weight="700">Départ / retour</text>
+            </svg>
+            <div id="map-canvas" class="map-canvas" aria-hidden="true"></div>
           </div>
           <div class="map-heading"><strong>Deux parcours.</strong><span>Un kilomètre ensemble.</span></div>
           <div class="map-legend" aria-label="Légende des parcours">
@@ -54,7 +110,7 @@
           </div>
           <div class="map-common-badge">≈ 1 km sur la Croisette</div>
         </div>
-        <div class="visual-caption"><strong>La portion commune est mise en évidence.</strong><span>Fond de carte réel · tracés d’exemple</span></div>
+        <div class="visual-caption"><strong>La portion commune est mise en évidence.</strong><span>Rues et repères de Cannes · tracés d’exemple</span></div>
       </div>
     </section>
 
