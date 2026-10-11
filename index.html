@@ -11,6 +11,7 @@
   <meta property="og:url" content="https://crossrunapp.fr/">
   <link rel="canonical" href="https://crossrunapp.fr/">
   <link rel="stylesheet" href="./home.css">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.13.0/dist/maplibre-gl.css">
   <title>CrossRun — Tu cours. Tu croises. Tu te retrouves.</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
       <div class="hero-text">
         <span class="eyebrow"><span class="dot"></span> BÊTA IPHONE · TESTFLIGHT</span>
         <h1>Tu cours.<br>Tu croises.<br><em>Tu te retrouves.</em></h1>
-        <p class="lead">CrossRun donne une nouvelle dimension à tes sorties : suis tes courses et découvre les runners avec qui tu as partagé un bout de parcours.</p>
+        <p class="lead">Alex et Julie prennent des rues différentes. Ils partagent environ 1 km sur La Croisette, puis Julie boucle jusqu’à son départ pendant qu’Alex continue.</p>
         <div class="actions">
           <a class="btn primary" href="https://testflight.apple.com/join/s9TwKQZC" target="_blank" rel="noopener noreferrer">Rejoindre la bêta iPhone <span aria-hidden="true">↗</span></a>
           <a class="btn secondary" href="#concept">Voir comment ça marche <span aria-hidden="true">↓</span></a>
@@ -40,9 +41,20 @@
         <div class="hero-tags"><span>Bêta gratuite</span><span>iPhone · TestFlight</span></div>
       </div>
       <div class="hero-visual">
-        <div class="visual-kicker"><span class="visual-pulse"></span> UNE RENCONTRE SUR TON PARCOURS</div>
-        <img src="./assets/cannes-runners-croises.jpeg" alt="Exemple CrossRun à Cannes : les parcours d’Alex et Julie partagent un kilomètre sur la Croisette, puis Julie poursuit sa boucle." fetchpriority="high">
-        <div class="visual-caption"><strong>1 km parcouru ensemble.</strong><span>Deux courses distinctes, une portion partagée.</span></div>
+        <div class="visual-kicker"><span class="visual-pulse"></span> CANNES · EXEMPLE DE PARCOURS</div>
+        <div class="map-panel">
+          <div id="cannes-map" class="cannes-map" role="img" aria-label="Carte réelle de Cannes : Alex et Julie partent à l’est, partagent environ un kilomètre sur la Croisette, puis Alex continue vers le Palais des Festivals et Julie rentre par une boucle.">
+            <div id="map-status" class="map-status">Chargement de la carte de Cannes…</div>
+          </div>
+          <div class="map-heading"><strong>Deux parcours.</strong><span>Un kilomètre ensemble.</span></div>
+          <div class="map-legend" aria-label="Légende des parcours">
+            <span><i class="legend-alex"></i>Alex continue</span>
+            <span><i class="legend-julie"></i>Julie rentre en boucle</span>
+            <span><i class="legend-common"></i>Portion partagée</span>
+          </div>
+          <div class="map-common-badge">≈ 1 km sur la Croisette</div>
+        </div>
+        <div class="visual-caption"><strong>La portion commune est mise en évidence.</strong><span>Fond de carte réel · tracés d’exemple</span></div>
       </div>
     </section>
 
@@ -66,10 +78,7 @@
             <div><span>03</span><p><strong>Chacun continue</strong><br>Alex poursuit, Julie rentre par sa boucle.</p></div>
           </div>
         </div>
-        <figure class="map-card">
-          <img src="./assets/cannes-runners-croises.jpeg" alt="Illustration du principe CrossRun sur la carte de Cannes, avec un tronçon commun sur la Croisette et une boucle de retour pour Julie." loading="lazy">
-          <figcaption>Exemple illustré à Cannes · Alex en corail · Julie en bleu</figcaption>
-        </figure>
+
       </div>
     </section>
 
@@ -139,5 +148,6 @@
     </div>
   </footer>
   <script src="./script.js"></script>
+  <script type="module" src="./assets/cannes-map.js"></script>
 </body>
 </html>
