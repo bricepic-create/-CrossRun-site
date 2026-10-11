@@ -2,11 +2,12 @@ import maplibregl from "https://unpkg.com/maplibre-gl@6.13.0/dist/maplibre-gl.mj
 
 const mapElement = document.getElementById("cannes-map");
 const statusElement = document.getElementById("map-status");
+const mapCanvas = document.getElementById("map-canvas");
 
-if (mapElement) {
+if (mapElement && mapCanvas) {
   try {
     const map = new maplibregl.Map({
-      container: mapElement,
+      container: mapCanvas,
       style: "https://tiles.openfreemap.org/styles/liberty",
       center: [7.027, 43.547],
       zoom: 13.6,
@@ -129,6 +130,7 @@ if (mapElement) {
         duration: 0,
       });
       if (statusElement) statusElement.remove();
+      map.once("idle", () => mapElement.classList.add("has-live-map"));
     });
 
     map.on("error", (event) => {
