@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
     <title>Sortie partagée · CrossRun</title>
     <style>
@@ -37,15 +37,11 @@
       .spinner { width:28px; height:28px; margin:18px auto; border:3px solid var(--border); border-top-color:var(--blue); border-radius:50%; animation:spin .8s linear infinite; }
       @keyframes spin { to { transform:rotate(360deg); } }
     </style>
-  </head>
+  <link rel="stylesheet" href="../design.css?v=20261011"><link rel="icon" href="../assets/crossrun-logo.svg" type="image/svg+xml"><style>body { display:block; padding:28px 20px; background:#EAF1F8; color:#102238; } main { margin:0 auto; } .card { background:#fff; border-color:#d6e2ef; box-shadow:0 18px 50px #20365014; } .position,.meta div,a.secondary { background:#f1f6fc; border-color:#d6e2ef; } .secure,p,.meta span,.privacy { color:#52657a; } .status { color:#1153c7; } .error { color:#b32d40; } a.secondary { color:#102238; } :root { color-scheme:light; --border:#d6e2ef; } .brand { display:inline-flex; align-items:flex-start; } .brand-row { display:flex; justify-content:space-between; align-items:center; } .privacy { font-size:12px; } @media(prefers-reduced-motion:reduce) { .spinner { animation:none; } }</style></head>
   <body>
     <main>
-      <div class="brand">
-        <div><div class="wordmark"><span>CROSS</span><span>RUN</span></div><div class="bar"></div></div>
-        <div class="secure">🔒 Lien temporaire</div>
-      </div>
-
-      <section class="card" aria-live="polite">
+      <div class="brand-row"><a class="brand" href="../" aria-label="CrossRun, accueil"><span class="brand-cross">CROSS</span><span class="brand-run"><i aria-hidden="true"></i>RUN</span></a><div class="secure">Lien temporaire</div></div>
+<section class="card" aria-live="polite">
         <div id="loading"><div class="spinner"></div><p style="text-align:center">Recherche de la sortie partagée…</p></div>
 
         <div id="content" class="hidden">
@@ -165,3 +161,4 @@
     </script>
   </body>
 </html>
+

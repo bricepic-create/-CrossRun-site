@@ -1,7 +1,7 @@
 """Render actual OSM geometry and precomputed pedestrian routes as static maps.
 No basemap street, coastline, or route is generated or drawn freehand.
 """
-import argparse, html, json, math, time, urllib.parse, urllib.request
+import argparse, base64, html, json, math, time, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent.parent
@@ -62,7 +62,7 @@ def render(name,bounds,focus=False):
         return 'M'+'L'.join(f'{x:.1f},{y:.1f}' for x,y in kept)
     def visible(points):
         return any(west-.004<=p[0]<=east+.004 and south-.004<=p[1]<=north+.004 for p in points)
-    out=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Carte OpenStreetMap de Cannes avec deux parcours piétons réels et un kilomètre commun"><rect width="1000" height="930" fill="#c7e9f2"/><g stroke-linecap="round" stroke-linejoin="round">']
+    out=[f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Carte OpenStreetMap de Cannes avec deux parcours piétons réels et un kilomètre commun"><rect width="1000" height="930" fill="#c7e9f2"/><g stroke-linecap="round" stroke-linejoin="round">']
     land=main_coast+[(8,46),(5,46),(5,42)]
     out.append(f'<path d="{path(land)}Z" fill="#f5f5ef"/>')
     for w in osm:
@@ -97,28 +97,36 @@ def render(name,bounds,focus=False):
         out.append(f'<text x="{x+dx:.1f}" y="{y+dy:.1f}" fill="{color}" font-family="Arial,sans-serif" font-size="{size}" font-weight="700" stroke="#fff" stroke-width="4" paint-order="stroke">{html.escape(label)}</text>')
     def pin(p,label,color,dx=15,dy=-55):
         x,y=xy(p);width=round(len(label)*16+40)
-        out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="10" fill="{color}" stroke="#fff" stroke-width="5"/>')
         bx=max(8,min(W-width-8,x+dx));by=max(10,min(H-125,y+dy))
+        out.append(f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{bx+28:.1f}" y2="{by:.1f}" stroke="{color}" stroke-width="1.5"/>')
         out.append(f'<rect x="{bx:.1f}" y="{by:.1f}" width="{width}" height="42" rx="12" fill="#fff" stroke="{color}" stroke-width="2"/>')
         out.append(f'<text x="{bx+14:.1f}" y="{by+28:.1f}" fill="#14263b" font-family="Arial,sans-serif" font-size="22" font-weight="700">{html.escape(label)}</text>')
+    def avatar(p,name,color):
+        x,y=xy(p);r=28
+        encoded=base64.b64encode((args.out/f'map-avatar-{name}.png').read_bytes()).decode()
+        out.append(f'<defs><clipPath id="avatar-{name}"><circle cx="{x:.1f}" cy="{y:.1f}" r="{r}"/></clipPath></defs>')
+        out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r+5}" fill="#fff"/>')
+        out.append(f'<image x="{x-r:.1f}" y="{y-r:.1f}" width="{r*2}" height="{r*2}" href="data:image/png;base64,{encoded}" xlink:href="data:image/png;base64,{encoded}" clip-path="url(#avatar-{name})"/>')
+        out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="none" stroke="{color}" stroke-width="4"/>')
     if focus:
         text((6.989,43.5605),'Croix des Gardes',26,'#65885c',-100,-4)
         text((6.976,43.5516),'Cannes-La Bocca',24,dx=-60)
         text((6.9983,43.5548),'Av. Jean de Noailles',17,dx=-40)
         text((6.9821,43.5592),'Bd de Roquebillière',17,dx=-80)
-        pin(routes['start'],'Laura · départ / retour','#1769ff',-240,70)
-        pin(routes['end'],'Les parcours se séparent','#e5ab00',-130,50)
+        paul_visible=min(routes['paul'],key=lambda p:(p[0]-6.977)**2+(p[1]-43.546)**2)
+        avatar(paul_visible,'paul','#f05e68')
+        avatar(routes['start'],'laura','#1769ff')
         middle=routes['common'][len(routes['common'])//2]
-        pin(middle,'1 000 m au même moment','#e5ab00',75,150)
+        pin(middle,'1 km parcouru ensemble','#e5ab00',60,110)
     else:
         text((6.9433,43.52354),'La Napoule',23,dx=-10,dy=-20)
         text((6.981,43.552),'Cannes-La Bocca',23,dx=-100)
         text((6.990,43.5605),'Croix des Gardes',23,dx=-70)
+        text((7.013,43.553),'Cannes',23)
         text((6.968,43.520),'BAIE DE CANNES',28,'#639caf',dx=-20)
-        pin(routes['paul'][0],'Paul · Théoule','#f05e68',-180,-65)
-        pin(routes['paul'][-1],'Paul · Cannes','#f05e68',-185,35)
-        pin(routes['start'],'Laura · La Bocca','#1769ff',-240,35)
-        pin(routes['end'],'1 km en commun','#e5ab00',-20,90)
+        avatar(routes['paul'][0],'paul','#f05e68')
+        avatar(routes['start'],'laura','#1769ff')
+        pin(routes['common'][len(routes['common'])//2],'1 km parcouru ensemble','#e5ab00',60,100)
     metres=500 if focus else 1000
     bar=scale*metres/(6371000*math.cos(math.radians((south+north)/2)))
     out.append(f'<rect x="15" y="14" width="{bar+34:.1f}" height="52" rx="9" fill="#fff" opacity=".94"/><path d="M30 42H{30+bar:.1f}M30 36V48M{30+bar:.1f} 36V48" fill="none" stroke="#5b6b7f" stroke-width="2"/><text x="30" y="31" font-family="Arial,sans-serif" font-size="15" fill="#5b6b7f">{metres} m</text>')
