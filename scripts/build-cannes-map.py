@@ -115,7 +115,7 @@ def render(name,bounds,focus=False):
         avatar(paul_visible,'paul','#f05e68')
         avatar(min(routes['laura'],key=lambda p:(p[0]-6.9927)**2+(p[1]-43.5578)**2),'laura','#1769ff')
         middle=routes['common'][len(routes['common'])//2]
-        pin(middle,'1 km parcouru ensemble','#e5ab00',20,45)
+        pin(middle,'1 km parcourus ensemble','#e5ab00',20,45)
     else:
         text((6.9433,43.52354),'La Napoule',23,dx=-10,dy=-20)
         text((6.981,43.552),'Cannes-La Bocca',23,dx=-100)
@@ -124,7 +124,7 @@ def render(name,bounds,focus=False):
         text((6.968,43.520),'BAIE DE CANNES',28,'#639caf',dx=-20)
         avatar(routes['paul'][0],'paul','#f05e68')
         avatar(min(routes['laura'],key=lambda p:(p[0]-6.9927)**2+(p[1]-43.5578)**2),'laura','#1769ff')
-        pin(routes['common'][len(routes['common'])//2],'1 km parcouru ensemble','#e5ab00',20,45)
+        pin(routes['common'][len(routes['common'])//2],'1 km parcourus ensemble','#e5ab00',20,45)
     metres=500 if focus else 1000
     bar=scale*metres/(6371000*math.cos(math.radians((south+north)/2)))
     out.append(f'<rect x="15" y="14" width="{bar+34:.1f}" height="52" rx="9" fill="#fff" opacity=".94"/><path d="M30 42H{30+bar:.1f}M30 36V48M{30+bar:.1f} 36V48" fill="none" stroke="#5b6b7f" stroke-width="2"/><text x="30" y="31" font-family="Arial,sans-serif" font-size="15" fill="#5b6b7f">{metres} m</text>')
