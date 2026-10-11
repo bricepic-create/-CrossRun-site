@@ -26,3 +26,9 @@
 .site-header .navigation{min-height:110px}
 @media(max-width:760px){.site-header .navigation>.brand{font-size:34px}.site-header .navigation{min-height:96px}}
 @media(max-width:370px){.site-header .navigation>.brand{font-size:30px}.site-header .navigation{min-height:90px}}
+
+/* Two clear paths into the beta, with the same CrossRun visual language. */
+.button-outline{background:transparent;color:var(--blue-dark);border:1px solid #b6ccef;box-shadow:none}.button-outline:hover{background:#eaf1ff;color:var(--blue-dark)}
+.platform-actions{align-items:stretch;min-width:260px}.platform-actions .small-note{text-align:center}.join>div:first-child{max-width:520px}.join>div:first-child>.small-note{display:block;margin-top:12px}
+.android-install{margin-bottom:60px}.android-install .detail-card{min-width:0}.android-install .steps{margin:24px 0 0}.android-install .steps p{font-size:14px}.android-install .button{margin-top:24px}.android-install .test-note{font-size:12px;margin-top:15px;margin-bottom:0}.android-install .small-link{display:inline-block;margin-top:16px}
+@media(max-width:760px){.platform-actions{min-width:0}.android-install{margin-bottom:40px}}
