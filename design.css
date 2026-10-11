@@ -32,3 +32,12 @@
 .platform-actions{align-items:stretch;min-width:260px}.platform-actions .small-note{text-align:center}.join>div:first-child{max-width:520px}.join>div:first-child>.small-note{display:block;margin-top:12px}
 .android-install{margin-bottom:60px}.android-install .detail-card{min-width:0}.android-install .steps{margin:24px 0 0}.android-install .steps p{font-size:14px}.android-install .button{margin-top:24px}.android-install .test-note{font-size:12px;margin-top:15px;margin-bottom:0}.android-install .small-link{display:inline-block;margin-top:16px}
 @media(max-width:760px){.platform-actions{min-width:0}.android-install{margin-bottom:40px}}
+
+/* Calm cartography, with the shared kilometre as the focal point. */
+.preview-map,.map-figure{border:1px solid #fff;border-radius:25px;box-shadow:0 12px 36px #1c3c5910}
+.preview-map>img{aspect-ratio:1000/930;background:#d6eaf1}
+.connection-note{padding:20px;gap:13px;background:#fff}
+.connection-symbol{border-radius:50%;background:#edf4ff;width:42px;height:42px}
+.connection-note strong{font-size:17px}.connection-note small{font-size:11px}
+.map-figure figcaption{padding:20px 22px}.map-figure .legend{gap:14px;font-size:12px;margin-bottom:10px}
+@media(max-width:760px){.preview-map,.map-figure{border-radius:21px}.connection-note{padding:16px 13px}.connection-note strong{font-size:15px}.connection-note small{font-size:10px}.map-figure figcaption{padding:17px}.map-figure .legend{font-size:11px}}
