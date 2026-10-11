@@ -98,9 +98,7 @@ def render(name,bounds,focus=False):
     def pin(p,label,color,dx=15,dy=-55):
         x,y=xy(p);width=round(len(label)*16+40)
         bx=max(8,min(W-width-8,x+dx));by=max(10,min(H-125,y+dy))
-        out.append(f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{bx+28:.1f}" y2="{by:.1f}" stroke="{color}" stroke-width="1.5"/>')
-        out.append(f'<rect x="{bx:.1f}" y="{by:.1f}" width="{width}" height="42" rx="12" fill="#fff" stroke="{color}" stroke-width="2"/>')
-        out.append(f'<text x="{bx+14:.1f}" y="{by+28:.1f}" fill="#14263b" font-family="Arial,sans-serif" font-size="22" font-weight="700">{html.escape(label)}</text>')
+        out.append(f'<text x="{bx+14:.1f}" y="{by+28:.1f}" fill="#14263b" font-family="Arial,sans-serif" font-size="22" font-weight="700" stroke="#fff" stroke-width="5" paint-order="stroke">{html.escape(label)}</text>')
     def avatar(p,name,color):
         x,y=xy(p);r=28
         encoded=base64.b64encode((args.out/f'map-avatar-{name}.png').read_bytes()).decode()
@@ -115,9 +113,9 @@ def render(name,bounds,focus=False):
         text((6.9821,43.5592),'Bd de Roquebillière',17,dx=-80)
         paul_visible=min(routes['paul'],key=lambda p:(p[0]-6.977)**2+(p[1]-43.546)**2)
         avatar(paul_visible,'paul','#f05e68')
-        avatar(routes['start'],'laura','#1769ff')
+        avatar(min(routes['laura'],key=lambda p:(p[0]-6.9927)**2+(p[1]-43.5578)**2),'laura','#1769ff')
         middle=routes['common'][len(routes['common'])//2]
-        pin(middle,'1 km parcouru ensemble','#e5ab00',60,110)
+        pin(middle,'1 km parcouru ensemble','#e5ab00',20,45)
     else:
         text((6.9433,43.52354),'La Napoule',23,dx=-10,dy=-20)
         text((6.981,43.552),'Cannes-La Bocca',23,dx=-100)
@@ -125,8 +123,8 @@ def render(name,bounds,focus=False):
         text((7.013,43.553),'Cannes',23)
         text((6.968,43.520),'BAIE DE CANNES',28,'#639caf',dx=-20)
         avatar(routes['paul'][0],'paul','#f05e68')
-        avatar(routes['start'],'laura','#1769ff')
-        pin(routes['common'][len(routes['common'])//2],'1 km parcouru ensemble','#e5ab00',60,100)
+        avatar(min(routes['laura'],key=lambda p:(p[0]-6.9927)**2+(p[1]-43.5578)**2),'laura','#1769ff')
+        pin(routes['common'][len(routes['common'])//2],'1 km parcouru ensemble','#e5ab00',20,45)
     metres=500 if focus else 1000
     bar=scale*metres/(6371000*math.cos(math.radians((south+north)/2)))
     out.append(f'<rect x="15" y="14" width="{bar+34:.1f}" height="52" rx="9" fill="#fff" opacity=".94"/><path d="M30 42H{30+bar:.1f}M30 36V48M{30+bar:.1f} 36V48" fill="none" stroke="#5b6b7f" stroke-width="2"/><text x="30" y="31" font-family="Arial,sans-serif" font-size="15" fill="#5b6b7f">{metres} m</text>')
