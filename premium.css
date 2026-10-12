@@ -210,3 +210,53 @@ body.home .universe-stage>.stage-footnote{padding:0 24px 20px;font-size:9px}
  .universe-map-copy>strong{font-size:clamp(16px,4.3vw,22px)}
  body.home .universe-stage>.stage-footnote{padding:0 18px 18px;font-size:8px}
 }
+
+/* Clear product story: running, crossings, coaching, community. */
+body.home .story-hero{gap:65px;padding-block:54px 64px;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+.hero-wordmark{width:clamp(180px,21vw,280px);height:auto;max-height:170px;object-fit:contain;object-position:left center;margin-bottom:25px}
+body.home .story-hero h1{font-size:clamp(48px,5.5vw,76px);margin:0 0 24px;line-height:1.1}
+body.home .story-map{align-self:center}
+.story-map-image{width:100%;height:auto}
+body.home .story-explanation{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:65px;padding-block:20px 78px}
+.story-explanation h2{font-size:clamp(32px,3.6vw,46px);margin-top:18px;line-height:1.15}
+.story-explanation h2 em{color:var(--blue);font-style:normal}
+.story-explanation p{font-size:16px;line-height:1.85;color:var(--muted);margin-bottom:16px;max-width:550px}
+body.home .story-coaches{padding-block:70px}
+.coach-intro{max-width:680px;margin-bottom:36px}
+body.home .coach-intro>p{max-width:650px}
+.personality-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:start}
+.personality-card{min-width:0;background:#ffffffbd;border:1px solid #d5e0ed;border-radius:20px;overflow:hidden}
+.personality-card summary{list-style:none;cursor:pointer;display:block;min-width:0}
+.personality-card summary::-webkit-details-marker{display:none}
+.personality-card summary:focus-visible{outline:3px solid var(--blue);outline-offset:-4px;border-radius:20px}
+.personality-card summary>img{width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;background:#eaf3fa}
+.coach-card-copy{display:grid;gap:8px;padding:21px 20px 22px}
+.coach-card-copy>strong{font-size:23px;letter-spacing:-.03em;line-height:1.2}
+.coach-personality{font-size:11px;font-weight:750;color:var(--blue-dark)}
+.coach-promise{font-size:13px;line-height:1.65;min-height:65px;color:var(--muted)}
+.coach-open{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:var(--blue);min-height:32px;margin-top:5px;gap:6px}
+.coach-open>span{font-size:21px;font-weight:500}
+.personality-card[open] .coach-open>span{transform:rotate(45deg)}
+.coach-expanded{padding:0 20px 24px;border-top:1px solid var(--line)}
+.coach-expanded p{font-size:13px;line-height:1.8;margin-top:17px;color:var(--muted)}
+body.home .coach-expanded .text-link{font-size:11px;line-height:1.6;margin-top:15px}
+.coach-program-note{font-size:13px;color:var(--muted);line-height:1.8;margin-top:28px;max-width:720px}
+@media(max-width:1000px){.personality-grid{gap:12px}.coach-card-copy{padding:17px 14px}.coach-expanded{padding-inline:14px}.coach-personality{font-size:10px}}
+@media(max-width:760px){
+ body.home .story-hero{grid-template-columns:minmax(0,1fr);gap:30px;padding-block:32px 38px}
+ .hero-wordmark{width:195px;max-height:130px;margin-bottom:24px}
+ body.home .story-hero h1{font-size:clamp(42px,12vw,64px);margin-bottom:20px}
+ body.home .story-explanation{grid-template-columns:minmax(0,1fr);gap:22px;padding-block:15px 48px}
+ .story-explanation h2{font-size:34px;margin-top:13px}
+ .story-explanation p{font-size:15px;line-height:1.8}
+ body.home .story-coaches{padding-block:45px}
+ .coach-intro{margin-bottom:27px}
+ .personality-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .coach-card-copy{padding:16px 14px;gap:8px}
+ .coach-card-copy>strong{font-size:21px}
+ .coach-personality{font-size:10px;line-height:1.5}
+ .coach-promise{font-size:12px;min-height:60px}
+ .coach-open{font-size:10px}
+ .coach-expanded p{font-size:12px}
+ .coach-program-note{font-size:12px;margin-top:23px}
+}
