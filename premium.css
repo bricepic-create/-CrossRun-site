@@ -93,17 +93,6 @@ body.home .footer-top{gap:50px}
 body.home .footer-links{gap:14px 40px}
 body.home .footer-links a{min-height:30px}
 /* Lead with the CrossRun world. The map is a supporting concept preview. */
-body.home .universe-stage{background:#eaf1f9;box-shadow:none;border-color:#dde6f1}
-.hero-universe{position:relative;min-height:545px;overflow:hidden}
-.universe-overline{position:absolute;top:27px;left:27px;font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--muted);z-index:2}
-.universe-coach-title{position:absolute;top:76px;left:27px;z-index:2;display:grid;gap:13px;max-width:230px}
-.universe-coach-title .eyebrow{font-size:8px;letter-spacing:.12em}
-.universe-coach-title strong{font-size:28px;font-weight:850;line-height:1.16;letter-spacing:-.04em}
-.universe-coach{position:absolute;right:-13px;top:20px;width:67%;height:525px;object-fit:contain;object-position:right bottom;mix-blend-mode:multiply}
-.universe-map{position:absolute;left:24px;bottom:23px;width:43%;max-width:238px;background:#fff;border:1px solid #dbe5f0;border-radius:16px;padding:9px;box-shadow:0 12px 30px -18px #28477450;overflow:hidden;z-index:3}
-.universe-map>span{display:block;padding:5px 5px 10px;font-size:8px;font-weight:800;letter-spacing:.1em;color:var(--text)}
-.universe-map>img{width:100%;height:auto;aspect-ratio:1000/930;border-radius:6px}
-body.home .universe-stage>.stage-footnote{padding:0 27px 22px;font-size:9px}
 @media(min-width:1440px){body.home .hero{padding-block:85px 95px}}
 @media(max-width:1100px){body.home .hero{gap:40px}body.home .hero h1{font-size:clamp(58px,6.8vw,78px)}body.home .crossing,body.home .coach-layout{gap:42px}body.home .group-panel{gap:35px;padding:40px}body.home .group-panel h2{font-size:40px}body.home .navigation{gap:25px}body.home .navigation nav{gap:20px}.map-stage-heading{padding:19px}.map-location{font-size:10px}.map-stage-heading .stage-label{font-size:9px}}
 @media(max-width:760px){
@@ -170,15 +159,6 @@ body.home .universe-stage>.stage-footnote{padding:0 27px 22px;font-size:9px}
  body.home .site-footer{padding-block:30px}
  body.home .footer-top{gap:25px}
  body.home .footer-links{gap:10px 22px;font-size:11px}
- .hero-universe{min-height:470px}
- .universe-overline{top:23px;left:21px;font-size:8px}
- .universe-coach-title{top:65px;left:21px;max-width:180px;gap:11px}
- .universe-coach-title strong{font-size:25px}
- .universe-coach-title .eyebrow{font-size:7px}
- .universe-coach{height:445px;width:69%;right:-12px;top:25px}
- .universe-map{left:17px;bottom:20px;width:47%;padding:7px;border-radius:14px}
- .universe-map>span{font-size:7px;letter-spacing:.05em;padding-bottom:8px}
- body.home .universe-stage>.stage-footnote{padding:0 21px 19px;font-size:8px}
 }
 @media(max-width:370px){
  body.home .wrap{width:calc(100% - 28px)}
@@ -196,15 +176,37 @@ body.home .universe-stage>.stage-footnote{padding:0 27px 22px;font-size:9px}
  body.home .challenge-members img,body.home .member-initial{width:29px;height:29px}
  body.home .challenge-members strong{font-size:10px}
  body.home .challenge-members li{font-size:9px}
- .hero-universe{min-height:410px}
- .universe-coach-title{max-width:165px;top:62px}
- .universe-coach-title strong{font-size:22px}
- .universe-coach{height:390px;top:18px;right:-14px}
- .universe-map{left:14px;bottom:17px;width:47%}
- .universe-map>span{font-size:6px;letter-spacing:.025em}
 }
 @media(prefers-reduced-motion:reduce){body.home .button{transition:none}}
 
 /* Preserve access to the Android test alongside the iPhone beta. */
 body.home .button-outline{background:transparent;color:var(--blue);border:1px solid var(--blue);box-shadow:none}
 body.home .button-outline:hover{background:#eaf2ff;box-shadow:none}
+
+/* Each image sits with the feature it illustrates. */
+body.home .universe-stage{background:#eaf1f9;box-shadow:none;border-color:#dde6f1}
+.hero-universe{display:grid;gap:18px;padding:24px;min-height:0}
+.universe-overline{position:static;font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--muted)}
+.universe-coach-panel{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);align-items:center;gap:14px;min-width:0}
+.universe-coach-title{position:static;display:grid;gap:13px;max-width:none;min-width:0}
+.universe-coach-title .eyebrow{font-size:8px;letter-spacing:.12em}
+.universe-coach-title strong{font-size:clamp(20px,2.2vw,26px);font-weight:850;line-height:1.2;letter-spacing:-.04em}
+.universe-coach{position:static;display:block;width:100%;height:235px;object-fit:contain;object-position:center;mix-blend-mode:multiply}
+.universe-map{position:static;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;gap:14px;width:100%;max-width:none;min-width:0;padding:15px;background:#fff;border:1px solid #dbe5f0;border-radius:16px;box-shadow:none;overflow:hidden}
+.universe-map-copy{display:grid;gap:10px;min-width:0}
+.universe-map-copy>span{font-size:8px;font-weight:800;letter-spacing:.1em;color:var(--blue);line-height:1.6}
+.universe-map-copy>strong{font-size:22px;font-weight:800;line-height:1.25;letter-spacing:-.035em;color:var(--text)}
+.universe-map>img{display:block;width:100%;height:auto;aspect-ratio:1000/930;border-radius:7px}
+body.home .universe-stage>.stage-footnote{padding:0 24px 20px;font-size:9px}
+@media(max-width:760px){
+ .hero-universe{gap:16px;padding:18px;min-height:0}
+ .universe-overline{font-size:8px}
+ .universe-coach-title{gap:10px}
+ .universe-coach-title .eyebrow{font-size:7px}
+ .universe-coach-title strong{font-size:clamp(18px,4.6vw,24px)}
+ .universe-coach{height:195px}
+ .universe-map{padding:12px;gap:12px;border-radius:14px}
+ .universe-map-copy>span{font-size:7px;letter-spacing:.07em}
+ .universe-map-copy>strong{font-size:clamp(16px,4.3vw,22px)}
+ body.home .universe-stage>.stage-footnote{padding:0 18px 18px;font-size:8px}
+}
