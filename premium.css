@@ -264,3 +264,16 @@ body.home .coach-expanded .text-link{font-size:11px;line-height:1.6;margin-top:1
 /* Match Éric's upper-body framing to the other male coaches. */
 .coach-portrait-frame{display:block;aspect-ratio:2/3;width:100%;overflow:hidden;background:#eaf3fa}
 .coach-portrait-frame>img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.65);transform-origin:50% 3%}
+
+/* Share posters: two distinct styles, one clear story. */
+.share-showcase{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:center;gap:56px;padding-block:60px 85px}
+.share-showcase-copy h2{font-size:clamp(32px,3.6vw,48px);line-height:1.15;margin:18px 0 24px;letter-spacing:-.035em}
+.share-showcase-copy h2 em{color:var(--blue);font-style:normal}
+.share-showcase-copy p{max-width:440px;color:var(--muted);font-size:16px;line-height:1.85}
+.share-showcase-visual{margin:0;min-width:0;padding:25px 0 0}
+.share-card-stack{position:relative;width:100%;max-width:610px;aspect-ratio:.96;margin:auto;isolation:isolate}
+.share-poster{position:absolute;width:56%;height:auto;display:block;border-radius:17px;border:1px solid #fff9;box-shadow:0 20px 48px #1738542b}
+.share-poster-horizon{left:5%;top:4%;transform:rotate(-8deg);z-index:1}
+.share-poster-solar{right:5%;top:20%;transform:rotate(8deg);z-index:2}
+.share-showcase-visual figcaption{text-align:center;margin-top:26px;font-size:12px;line-height:1.5;color:var(--muted)}
+@media(max-width:760px){.share-showcase{grid-template-columns:minmax(0,1fr);gap:18px;padding-block:35px 55px}.share-showcase-copy h2{font-size:34px}.share-showcase-copy p{font-size:15px}.share-showcase-visual{padding-top:14px}.share-card-stack{max-width:460px}.share-poster{border-radius:11px}.share-showcase-visual figcaption{margin-top:22px;font-size:11px}}
