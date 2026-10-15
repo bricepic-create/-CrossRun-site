@@ -271,9 +271,9 @@ body.home .coach-expanded .text-link{font-size:11px;line-height:1.6;margin-top:1
 .share-showcase-copy h2 em{color:var(--blue);font-style:normal}
 .share-showcase-copy p{max-width:440px;color:var(--muted);font-size:16px;line-height:1.85}
 .share-showcase-visual{margin:0;min-width:0;padding:25px 0 0}
-.share-card-stack{position:relative;width:100%;max-width:610px;aspect-ratio:.96;margin:auto;isolation:isolate}
-.share-poster{position:absolute;width:56%;height:auto;display:block;border-radius:17px;border:1px solid #fff9;box-shadow:0 20px 48px #1738542b}
-.share-poster-horizon{left:5%;top:4%;transform:rotate(-8deg);z-index:1}
-.share-poster-solar{right:5%;top:20%;transform:rotate(8deg);z-index:2}
+.share-card-stack{position:relative;width:100%;max-width:610px;aspect-ratio:1.35;margin:auto;isolation:isolate}
+.share-poster{position:absolute;width:46%;height:auto;display:block;border-radius:17px;border:1px solid #fff9;box-shadow:0 20px 48px #1738542b}
+.share-poster-horizon{left:3%;top:4%;transform:rotate(-3deg);z-index:1}
+.share-poster-solar{right:3%;top:14%;transform:rotate(3deg);z-index:2}
 .share-showcase-visual figcaption{text-align:center;margin-top:26px;font-size:12px;line-height:1.5;color:var(--muted)}
 @media(max-width:760px){.share-showcase{grid-template-columns:minmax(0,1fr);gap:18px;padding-block:35px 55px}.share-showcase-copy h2{font-size:34px}.share-showcase-copy p{font-size:15px}.share-showcase-visual{padding-top:14px}.share-card-stack{max-width:460px}.share-poster{border-radius:11px}.share-showcase-visual figcaption{margin-top:22px;font-size:11px}}
