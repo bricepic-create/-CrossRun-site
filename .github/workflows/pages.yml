@@ -28,11 +28,23 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Test Pages packaging
+        run: python3 -B scripts/test-package-pages.py
+
+      - name: Package and verify required Apple association
+        run: python3 -B scripts/package-pages.py . "$RUNNER_TEMP/artifact.tar"
+
+      # upload-pages-artifact@v4 excludes hidden paths, including .well-known.
+      # Upload our verified tar using the same Pages artifact contract.
       - name: Upload site
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          path: '.'
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
