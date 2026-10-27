@@ -1,0 +1,9 @@
+# Example ONLY. Requires a configured zone/proxy and explicit deployment review.
+# GitHub Pages cannot activate this file or set the AASA Content-Type itself.
+name = "crossrun-aasa-header"
+main = "aasa-header-adapter.mjs"
+compatibility_date = "2026-10-27"
+workers_dev = false
+[[routes]]
+pattern = "crossrunapp.fr/.well-known/apple-app-site-association"
+zone_name = "crossrunapp.fr"

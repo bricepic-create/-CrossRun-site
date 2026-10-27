@@ -1,0 +1,23 @@
+name: AASA header adapter review
+on:
+  pull_request:
+    paths:
+      - deployment/**
+      - scripts/build-aasa-adapter.mjs
+      - scripts/test-aasa-adapter.mjs
+      - docs/aasa-header-preparation-20261027.md
+      - .github/workflows/aasa-header-review.yml
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/build-aasa-adapter.mjs --check
+      - run: node --test scripts/test-aasa-adapter.mjs
