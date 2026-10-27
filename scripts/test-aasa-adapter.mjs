@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
+import {associationResponse} from '../deployment/aasa-header-adapter.mjs';
+import {AASA_TEXT,AASA_SHA256} from '../deployment/aasa-content.generated.mjs';
+const url='https://crossrunapp.fr/.well-known/apple-app-site-association';
+test('GET serves the exact canonical bytes with JSON MIME, no redirect or cookies',async()=>{
+ const r=associationResponse(new Request(url));assert.equal(r.status,200);assert.equal(r.headers.get('Content-Type'),'application/json; charset=utf-8');assert.equal(r.headers.get('Location'),null);assert.equal(r.headers.get('Set-Cookie'),null);assert.equal(r.headers.get('X-Content-Type-Options'),'nosniff');
+ const text=await r.text();assert.equal(text,fs.readFileSync('.well-known/apple-app-site-association','utf8'));assert.equal(text,AASA_TEXT);assert.equal(crypto.createHash('sha256').update(text).digest('hex'),AASA_SHA256);assert.equal(AASA_SHA256,'b735dd6a696c57f4264e39952dde0dfc48454f9a28238c42e1d3dee0e665f803');assert.equal(+r.headers.get('Content-Length'),Buffer.byteLength(text));
+ const detail=JSON.parse(text).applinks.details[0];assert.deepEqual(detail.appIDs,['67WMYG23VK.fr.crossrun.app']);assert.equal(detail.components.length,7);assert(detail.components.every(c=>!c.exclude));
+});
+test('HEAD has the same headers and no body',async()=>{const a=associationResponse(new Request(url)),b=associationResponse(new Request(url,{method:'HEAD'}));assert.deepEqual([...b.headers],[...a.headers]);assert.equal(b.status,200);assert.equal(await b.text(),'');});
+test('all user agents and cache validators receive the canonical file',async()=>{for(const userAgent of ['AppleBot','MyAgent-Bot/*','Mozilla/5.0']){const r=associationResponse(new Request(url,{headers:{'User-Agent':userAgent,'If-None-Match':'old'}}));assert.equal(r.status,200);assert.equal(await r.text(),AASA_TEXT);}});
+test('other hosts and paths are never proxied or redirected',()=>{for(const u of [url+'/',url.replace('crossrunapp.fr','other.fr'),url.replace('https:','http:'),url.replace('/.well-known/','/'),url.replace('apple-app','%61pple-app'),'https://crossrunapp.fr/messages/private']){const r=associationResponse(new Request(u));assert.equal(r.status,404);assert.equal(r.headers.get('Location'),null);}});
+test('mutating methods cannot change the public association',()=>{for(const method of ['POST','PUT','DELETE','OPTIONS']){const r=associationResponse(new Request(url,{method}));assert.equal(r.status,405);assert.equal(r.headers.get('Allow'),'GET, HEAD');assert.equal(r.headers.get('Location'),null);}});
