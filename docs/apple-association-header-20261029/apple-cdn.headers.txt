@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+date: Wed, 28 Oct 2026 23:36:04 GMT
+
+HTTP/2 200 
+server: envoy
+date: Wed, 28 Oct 2026 23:36:05 GMT
+content-type: application/json
+content-length: 696
+apple-from: https://crossrunapp.fr/.well-known/apple-app-site-association
+apple-origin-format: json
+cache-control: max-age=3600,public
+vary: Accept-Encoding
+x-b3-traceid: 1a092d4711151731
+strict-transport-security: max-age=31536000
+age: 0
+via: https/1.1 usprz4-vp-vst-005.ts.apple.com (acdn/26.17695), https/1.1 usprz4-vp-vfe-008.ts.apple.com (acdn/26.17695), https/1.1 ussea4-edge-mx-002.ts.apple.com (acdn/26.17695), https/1.1 ussea4-edge-fx-011.ts.apple.com (acdn/26.17695)
+x-cache: miss, miss, miss, miss
+cdnuuid: 73b2de5f-5dcd-4965-bcf7-f8dac231286c-37472416
+x-envoy-upstream-service-time: 598
+
