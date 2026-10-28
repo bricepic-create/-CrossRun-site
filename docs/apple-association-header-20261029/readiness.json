@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-10-28T23:36:05Z",
+  "userLocalDate": "2026-10-29",
+  "sourceRepository": "bricepic-create/-CrossRun-site",
+  "sourceCommit": "11ac00df10b3b4597cd97823b4abdffe08a2260d",
+  "origin": {
+    "url": "https://crossrunapp.fr/.well-known/apple-app-site-association",
+    "status": 200,
+    "contentType": "application/octet-stream",
+    "strictPublicationContractPassed": false
+  },
+  "appleCdn": {
+    "url": "https://app-site-association.cdn-apple.com/a/v1/crossrunapp.fr",
+    "status": 200,
+    "contentType": "application/json",
+    "originFormat": "json",
+    "strictPublicationContractPassed": true,
+    "matchesOriginBytes": true
+  },
+  "body": {
+    "bytes": 696,
+    "sha256": "b735dd6a696c57f4264e39952dde0dfc48454f9a28238c42e1d3dee0e665f803",
+    "appId": "67WMYG23VK.fr.crossrun.app",
+    "routes": 7
+  },
+  "dnsNameservers": [
+    "dns111.ovh.net",
+    "ns111.ovh.net"
+  ],
+  "preparedCorrection": {
+    "nodeTestsPassed": 15,
+    "nodeTestsFailed": 0,
+    "nodeTestsSkipped": 0,
+    "existingMobileContractTestsPassed": 19,
+    "existingPagesPackagingTestsPassed": 4,
+    "wranglerDryRunVersion": "4.102.0",
+    "wranglerDryRunPassed": true,
+    "workerDeployed": false,
+    "dnsChanged": false
+  },
+  "physicalIphoneUniversalLinksVerified": false,
+  "appStoreApproved": false
+}

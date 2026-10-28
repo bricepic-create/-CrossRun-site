@@ -1,0 +1,18 @@
+{
+  "name": "crossrun-apple-association",
+  "main": "workers/apple-association/dist/worker.mjs",
+  "compatibility_date": "2026-10-27",
+  "no_bundle": true,
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "crossrunapp.fr/.well-known/apple-app-site-association",
+      "zone_name": "crossrunapp.fr"
+    }
+  ],
+  "build": {
+    "command": "node scripts/build-apple-association-worker.mjs",
+    "cwd": "."
+  }
+}

@@ -1,0 +1,34 @@
+name: Check the narrow Apple association header responder
+on:
+  push:
+    branches: [fix/apple-association-header-20261029]
+    paths:
+      - 'workers/apple-association/**'
+      - 'scripts/*apple-association-worker.mjs'
+      - 'wrangler.aasa.json'
+      - '.github/workflows/apple-association-check.yml'
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+        with: {fetch-depth: 1, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: 24}
+      - name: Preserve every association and request-scope invariant
+        run: |
+          mkdir -p artifacts/apple-association
+          node --test --test-reporter=tap scripts/test-apple-association-worker.mjs > artifacts/apple-association/tests.tap 2>&1
+          node scripts/build-apple-association-worker.mjs > artifacts/apple-association/build.json
+          node --check workers/apple-association/dist/worker.mjs
+      - name: Existing Pages packaging remains valid
+        run: python3 -B scripts/test-package-pages.py > artifacts/apple-association/pages-tests.log 2>&1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apple-association-check
+          path: artifacts/apple-association
+          retention-days: 7
+          if-no-files-found: error
