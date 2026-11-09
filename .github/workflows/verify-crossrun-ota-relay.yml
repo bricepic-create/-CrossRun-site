@@ -1,0 +1,44 @@
+name: Verify CrossRun OTA relay
+
+on:
+  push:
+    branches:
+      - cloudflare/crossrun-ota-proxy
+    paths:
+      - .github/workflows/verify-crossrun-ota-relay.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Wait for Cloudflare deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://workercrossrun-ota-test.brice-pic.workers.dev"
+          code=""
+          for attempt in $(seq 1 36); do
+            code="$(curl --silent --show-error --output health.json --write-out '%{http_code}' "$base/health" || true)"
+            if [ "$code" = "200" ]; then
+              break
+            fi
+            sleep 10
+          done
+          test "$code" = "200"
+          grep -q '"ok":true' health.json
+
+      - name: Verify reconstructed launch bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://workercrossrun-ota-test.brice-pic.workers.dev/EigUyURvls-y6FO4gYaK3W03gC6TNe2DYggZPKABmUY?project=4bef131e-6959-44c3-91c1-b9bdbdf4fb42"
+          curl --fail --location --retry 3 --output launch.bundle "$url"
+          actual="$(sha256sum launch.bundle | cut -d ' ' -f 1)"
+          expected="690f4b843b2b8f5bd1c21f61ad12488318f6b75a15a3a8d0d3c6992659cbdb28"
+          test "$actual" = "$expected"
+          test "$(wc -c < launch.bundle)" -gt 25000000
