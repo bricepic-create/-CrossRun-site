@@ -1,4 +1,5 @@
 const PROJECT_ID = '4bef131e-6959-44c3-91c1-b9bdbdf4fb42';
+const ASSET_ORIGIN = 'https://assets.eascdn.net';
 const ASSET_PATH = /^\/[A-Za-z0-9_-]{20,100}$/;
 let mirrorIndexPromise;
 
@@ -39,12 +40,58 @@ function chunkStream(env, key, parts) {
   });
 }
 
+function responseHeaders(source) {
+  const headers = new Headers();
+  for (const name of [
+    'content-type',
+    'content-length',
+    'content-range',
+    'accept-ranges',
+    'etag',
+    'last-modified',
+  ]) {
+    const value = source.get(name);
+    if (value) headers.set(name, value);
+  }
+  headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  headers.set('X-Content-Type-Options', 'nosniff');
+  headers.set('Access-Control-Allow-Origin', '*');
+  headers.set('X-CrossRun-Asset-Source', 'eas-origin');
+  return headers;
+}
+
+async function fetchOriginAsset(request, url) {
+  const upstream = new URL(url.pathname, ASSET_ORIGIN);
+  upstream.searchParams.set('project', PROJECT_ID);
+  const headers = new Headers();
+  for (const name of ['accept', 'if-none-match', 'range']) {
+    const value = request.headers.get(name);
+    if (value) headers.set(name, value);
+  }
+  const response = await fetch(upstream, {
+    method: request.method,
+    headers,
+    cf: { cacheEverything: true, cacheTtl: 31536000 },
+  });
+  if (!response.ok && response.status !== 304) {
+    return new Response('Asset unavailable', { status: response.status });
+  }
+  return new Response(request.method === 'HEAD' ? null : response.body, {
+    status: response.status,
+    headers: responseHeaders(response.headers),
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
     if (url.pathname === '/health') {
-      return Response.json({ ok: true, service: 'crossrun-ota-assets' });
+      return Response.json({
+        ok: true,
+        service: 'crossrun-ota-assets',
+        mode: 'verified-mirror-with-eas-origin-fallback',
+      });
     }
 
     if (
@@ -61,17 +108,17 @@ export default {
       });
     }
 
-    let index;
+    let index = null;
     try {
       index = await loadMirrorIndex(env);
     } catch {
-      return new Response('Mirror not ready', { status: 503 });
+      // A temporary static-assets failure must not break future OTA assets.
     }
 
     const key = url.pathname.slice(1);
-    const metadata = index.files?.[key];
+    const metadata = index?.files?.[key];
     if (!metadata) {
-      return new Response('Asset not mirrored', { status: 404 });
+      return fetchOriginAsset(request, url);
     }
 
     const headers = new Headers({
@@ -81,6 +128,7 @@ export default {
       ETag: '"' + metadata.hash + '"',
       'X-Content-Type-Options': 'nosniff',
       'Access-Control-Allow-Origin': '*',
+      'X-CrossRun-Asset-Source': 'verified-mirror',
     });
 
     if (request.method === 'HEAD') {
@@ -96,7 +144,7 @@ export default {
 
     const asset = await env.ASSETS.fetch('https://assets.local/' + key);
     if (!asset.ok) {
-      return new Response('Asset not mirrored', { status: 404 });
+      return fetchOriginAsset(request, url);
     }
     return new Response(asset.body, { status: 200, headers });
   },
