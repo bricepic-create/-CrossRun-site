@@ -1,14 +1,17 @@
 const PROJECT_ID = '4bef131e-6959-44c3-91c1-b9bdbdf4fb42';
-const ASSET_HOST = 'https://assets.eascdn.net';
 const ASSET_PATH = /^\/[A-Za-z0-9_-]{20,100}$/;
 
 export default {
-  async fetch(request) {
-    const requestUrl = new URL(request.url);
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (url.pathname === '/health') {
+      return Response.json({ ok: true, service: 'crossrun-ota-assets' });
+    }
 
     if (
-      !ASSET_PATH.test(requestUrl.pathname) ||
-      requestUrl.searchParams.get('project') !== PROJECT_ID
+      !ASSET_PATH.test(url.pathname) ||
+      url.searchParams.get('project') !== PROJECT_ID
     ) {
       return new Response('Not found', { status: 404 });
     }
@@ -20,33 +23,23 @@ export default {
       });
     }
 
-    const upstreamUrl = new URL(requestUrl.pathname, ASSET_HOST);
-    upstreamUrl.searchParams.set('project', PROJECT_ID);
+    const assetUrl = new URL(url.pathname, 'https://assets.local');
+    const asset = await env.ASSETS.fetch(
+      new Request(assetUrl, { method: request.method })
+    );
 
-    try {
-      const upstream = await fetch(upstreamUrl, {
-        method: request.method,
-        redirect: 'error',
-      });
-
-      if (!upstream.ok) {
-        return new Response(null, { status: 502 });
-      }
-
-      const headers = new Headers();
-      for (const name of ['content-type', 'content-length', 'etag', 'last-modified']) {
-        const value = upstream.headers.get(name);
-        if (value) headers.set(name, value);
-      }
-      headers.set('Cache-Control', 'public, max-age=86400');
-      headers.set('X-Content-Type-Options', 'nosniff');
-
-      return new Response(upstream.body, {
-        status: 200,
-        headers,
-      });
-    } catch {
-      return new Response(null, { status: 502 });
+    if (!asset.ok) {
+      return new Response('Asset not mirrored', { status: 404 });
     }
+
+    const headers = new Headers(asset.headers);
+    headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+    headers.set('X-Content-Type-Options', 'nosniff');
+    headers.set('Access-Control-Allow-Origin', '*');
+
+    return new Response(request.method === 'HEAD' ? null : asset.body, {
+      status: 200,
+      headers,
+    });
   },
 };
