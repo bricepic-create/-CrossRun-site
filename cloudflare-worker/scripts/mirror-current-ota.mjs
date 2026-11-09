@@ -93,9 +93,11 @@ for (const asset of assets) {
   assert.equal(source.protocol, 'https:');
   assert.equal(source.hostname, 'assets.eascdn.net');
   assert.equal(source.searchParams.get('project'), PROJECT);
-  const previous = unique.get(asset.key);
-  if (previous) assert.equal(previous.hash, asset.hash, 'Duplicate key has a different hash');
-  else unique.set(asset.key, asset);
+  const mirrorKey = source.pathname.slice(1);
+  assert.match(mirrorKey, /^[A-Za-z0-9_-]{20,100}$/);
+  const previous = unique.get(mirrorKey);
+  if (previous) assert.equal(previous.hash, asset.hash, 'Duplicate URL key has a different hash');
+  else unique.set(mirrorKey, { ...asset, mirrorKey });
 }
 
 await fs.rm(OUTPUT, { recursive: true, force: true });
@@ -128,10 +130,10 @@ await Promise.all(Array.from({ length: 8 }, async () => {
     assert.equal(sha256(bytes), expected, asset.key + ' hash mismatch');
     let parts = 1;
     if (bytes.length <= MAX_STATIC_ASSET_BYTES) {
-      await fs.writeFile(path.join(OUTPUT, asset.key), bytes);
+      await fs.writeFile(path.join(OUTPUT, asset.mirrorKey), bytes);
     } else {
       parts = Math.ceil(bytes.length / CHUNK_BYTES);
-      const chunkDirectory = path.join(OUTPUT, 'chunks', asset.key);
+      const chunkDirectory = path.join(OUTPUT, 'chunks', asset.mirrorKey);
       await fs.mkdir(chunkDirectory, { recursive: true });
       for (let part = 0; part < parts; part++) {
         const start = part * CHUNK_BYTES;
@@ -141,7 +143,8 @@ await Promise.all(Array.from({ length: 8 }, async () => {
       }
     }
     records.push({
-      key: asset.key,
+      key: asset.mirrorKey,
+      expoKey: asset.key,
       hash: asset.hash,
       sha256: expected,
       bytes: bytes.length,
