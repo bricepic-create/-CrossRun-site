@@ -9,6 +9,7 @@ const CHANNEL = 'crossrun-testflight-clean-20261102-v1';
 const UPDATE_ID = '01a1bf67-210a-72d6-8885-406b2b28ed35';
 const EXPECTED_ASSETS = 443;
 const MAX_STATIC_ASSET_BYTES = 25 * 1024 * 1024;
+const CHUNK_BYTES = 20 * 1024 * 1024;
 const OUTPUT = path.resolve('cloudflare-worker/public');
 const REPORT = path.resolve('cloudflare-worker/mirror-report.json');
 
@@ -123,16 +124,29 @@ await Promise.all(Array.from({ length: 8 }, async () => {
       asset.key
     );
     const bytes = Buffer.from(await response.arrayBuffer());
-    assert(bytes.length <= MAX_STATIC_ASSET_BYTES, asset.key + ' exceeds Cloudflare static asset limit');
     const expected = Buffer.from(asset.hash, 'base64url').toString('hex');
     assert.equal(sha256(bytes), expected, asset.key + ' hash mismatch');
-    await fs.writeFile(path.join(OUTPUT, asset.key), bytes);
+    let parts = 1;
+    if (bytes.length <= MAX_STATIC_ASSET_BYTES) {
+      await fs.writeFile(path.join(OUTPUT, asset.key), bytes);
+    } else {
+      parts = Math.ceil(bytes.length / CHUNK_BYTES);
+      const chunkDirectory = path.join(OUTPUT, 'chunks', asset.key);
+      await fs.mkdir(chunkDirectory, { recursive: true });
+      for (let part = 0; part < parts; part++) {
+        const start = part * CHUNK_BYTES;
+        const chunk = bytes.subarray(start, Math.min(start + CHUNK_BYTES, bytes.length));
+        assert(chunk.length <= MAX_STATIC_ASSET_BYTES);
+        await fs.writeFile(path.join(chunkDirectory, String(part).padStart(3, '0')), chunk);
+      }
+    }
     records.push({
       key: asset.key,
       hash: asset.hash,
       sha256: expected,
       bytes: bytes.length,
       contentType: asset.contentType,
+      parts,
     });
     process.stdout.write('Mirrored ' + records.length + '/' + unique.size + '\n');
   }
@@ -152,11 +166,17 @@ const report = {
 };
 await fs.writeFile(REPORT, JSON.stringify(report, null, 2) + '\n');
 await fs.writeFile(
-  path.join(OUTPUT, '_mirror.json'),
+  path.join(OUTPUT, 'mirror-index.json'),
   JSON.stringify({
     updateId: report.updateId,
     assets: report.assets,
     totalBytes: report.totalBytes,
+    files: Object.fromEntries(records.map(asset => [asset.key, {
+      hash: asset.hash,
+      bytes: asset.bytes,
+      contentType: asset.contentType,
+      parts: asset.parts,
+    }])),
   }) + '\n'
 );
 console.log('MIRROR_COMPLETE ' + JSON.stringify({
