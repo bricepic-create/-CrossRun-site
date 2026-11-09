@@ -1,5 +1,7 @@
 name: Verify CrossRun OTA relay
 
+# Validates the complete reconstructed launch bundle after mirror deployment.
+
 on:
   push:
     branches:
