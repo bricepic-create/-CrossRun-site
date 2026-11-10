@@ -64,7 +64,7 @@ async function fetchOriginAsset(request, url) {
   const upstream = new URL(url.pathname, ASSET_ORIGIN);
   upstream.searchParams.set('project', PROJECT_ID);
   const headers = new Headers();
-  for (const name of ['accept', 'if-none-match', 'range']) {
+  for (const name of ['accept', 'authorization', 'if-none-match', 'range']) {
     const value = request.headers.get(name);
     if (value) headers.set(name, value);
   }
