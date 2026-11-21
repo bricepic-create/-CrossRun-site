@@ -420,3 +420,17 @@ body.site-v2,body.product-page,body.legal-page{background:#f7faff;color:var(--in
  .coach-card>img{height:160px}
  .download-actions .button{width:100%}
 }
+
+/* Feature illustrations derived from CrossRun's routes, original coach and running screens. */
+.app-feature-story{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center;gap:clamp(28px,5vw,72px);padding-block:clamp(52px,6vw,88px)}
+.app-feature-story h2{font-size:clamp(34px,4.1vw,50px);margin-bottom:18px}
+.app-feature-story .story-copy p:not(.eyebrow),.app-feature-story .section-heading p:not(.eyebrow){color:var(--muted);font-size:1.08rem;line-height:1.65}
+.app-feature-visual{margin:0;min-width:0;width:100%;overflow:hidden;border-radius:24px;background:white;border:1px solid var(--line);box-shadow:0 12px 32px rgba(31,63,101,.08)}
+.app-feature-visual img{display:block;width:100%;height:auto;aspect-ratio:1080/760}
+.app-feature-visual figcaption{margin:0;padding:11px 17px;font-size:.88rem;line-height:1.4;color:#476079;background:white;text-align:left}
+.coach-program-intro{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);padding:0;margin-bottom:clamp(25px,4vw,48px)}
+.coach-program-intro .section-heading{margin:0}
+.discovery-guidance{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(24px,5vw,60px);margin-top:32px}
+.discovery-guidance .guidance-banner{margin:0}
+@media(max-width:840px){.app-feature-story,.discovery-guidance{grid-template-columns:minmax(0,1fr);gap:20px}.app-feature-story>.story-copy{order:-1}.app-feature-visual{max-width:660px;justify-self:center}.coach-program-intro{padding:0}.discovery-guidance .guidance-banner{order:-1}}
+@media(max-width:500px){.app-feature-visual{border-radius:17px}.app-feature-visual figcaption{font-size:.82rem;padding:9px 12px}}
