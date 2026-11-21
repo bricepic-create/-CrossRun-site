@@ -16,3 +16,208 @@ body.legal-page{background:#f6f9fd}.information-page{padding-bottom:64px}.legal-
 @media(max-width:930px){.hero{min-height:auto;padding-block:62px 70px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px}.hero h1{font-size:clamp(59px,8.5vw,80px)}.hero-lead{font-size:17px}.coach-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.challenge-section,.share-inner{gap:30px}.privacy-inner{grid-template-columns:53px 1fr}.privacy-inner>.button{grid-column:2;justify-self:start}.download-card{gap:25px}}
 @media(max-width:700px){.wrap{width:min(100% - 32px,560px)}.navigation{min-height:68px;flex-wrap:wrap;gap:0 10px}.brand{flex-basis:145px;width:145px;height:26px}.nav-button{min-height:39px;padding-inline:12px;font-size:12px}.navigation nav{order:3;width:100%;padding:0 0 10px;justify-content:space-between;gap:8px;font-size:12px}.hero{padding-block:44px 54px;grid-template-columns:1fr;gap:30px}.hero h1{font-size:clamp(64px,17vw,86px)}.hero-lead{font-size:17px}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .button{width:100%}.hero-note{align-items:flex-start;font-size:13px}.availability{font-size:12px}.hero-visual{padding:10px;border-radius:22px;transform:none}.visual-heading{font-size:12px}.visual-caption{gap:8px}.privacy-tag{font-size:11px}.steps-section,.coach-section{padding-block:58px}.section-heading{margin-bottom:23px}.section-heading h2,.challenge-copy h2,.share-copy h2{font-size:34px}.section-heading>p:last-child{font-size:15px}.steps-grid,.feature-grid{grid-template-columns:1fr;gap:10px}.step-card{min-height:0;padding:19px}.step-icon{margin-bottom:13px}.step-card h3{font-size:19px}.feature-card{min-height:0;padding:18px}.features-section,.challenge-section,.faq-section{padding-block:59px}.coach-grid{gap:10px}.coach-card>img{height:165px}.coach-card>div{padding:13px}.coach-card h3{font-size:18px}.coach-card span,.coach-card p{font-size:12px}.coach-distance{font-size:13px}.challenge-section,.share-inner{grid-template-columns:1fr;gap:23px}.share-section{padding:54px 0}.share-examples{gap:8px}.share-examples img{width:42%;border-width:4px}.privacy-section{padding:32px 0}.privacy-inner{grid-template-columns:45px 1fr;gap:13px}.privacy-symbol{width:45px;height:45px}.privacy-inner h2{font-size:25px}.privacy-inner>div>p:last-child{font-size:14px}.privacy-inner>.button{width:100%;grid-column:1/-1}.faq-section{grid-template-columns:1fr;gap:21px}.faq-list summary{font-size:15px}.faq-list details p{font-size:14px}.download-section{padding-bottom:55px}.download-card{padding:25px 20px;grid-template-columns:1fr;gap:20px;border-radius:22px}.download-card h2{font-size:32px}.download-actions{min-width:0}.footer-top{padding-block:32px 22px;grid-template-columns:1fr 1fr;gap:25px 17px}.footer-brand{grid-column:1/-1}.site-footer .brand{flex-basis:165px}.footer-links{font-size:13px}.footer-bottom{min-height:48px;font-size:12px}.page-hero{padding-top:39px}.page-hero>p{font-size:16px}.detail-grid{grid-template-columns:1fr;gap:10px;padding-bottom:34px}.detail-card{padding:19px}.quiet-panel{padding:20px;margin-bottom:38px}.coach-detail{padding-block:20px 38px;grid-template-columns:1fr;gap:22px}.coach-lineup img{height:180px}.coach-lineup{gap:8px}.coach-lineup figcaption{padding:8px;font-size:13px}.goal-pills span{font-size:13px}.legal-hero{padding-block:38px 20px}.legal-hero h1{font-size:39px}.page-contents nav{grid-template-columns:1fr}.legal-body{padding:23px 19px;border-radius:19px}.legal-body h2{font-size:20px}.legal-body p,.legal-body ul,.legal-body ol{font-size:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
+/* CrossRun premium refinement */
+:root{--ink:#102741;--blue:#1769ff;--blue-deep:#1055d4;--muted:#60748d;--line:#d7e4f2;--line-strong:#bfd2e8;--sky:#eaf4ff;--coral:#ff7383}
+body{background:#f7faff;color:var(--ink);line-height:1.65}
+.site-header{background:rgba(255,255,255,.92);box-shadow:0 5px 20px rgba(20,52,91,.035)}
+.navigation{gap:18px}
+.navigation nav{gap:clamp(12px,1.7vw,24px);font-size:13px}
+.navigation nav a{white-space:nowrap}
+.button{border-radius:14px;box-shadow:0 7px 18px rgba(23,105,255,.12)}
+.button.secondary{box-shadow:none}
+.hero{min-height:610px;padding-block:84px 94px;gap:clamp(38px,5vw,70px)}
+.hero-visual{transform:none;border-radius:29px;box-shadow:0 26px 65px rgba(34,74,122,.16),0 3px 10px rgba(22,51,86,.08)}
+.hero-visual>img{border-radius:20px}
+.steps-section{background:linear-gradient(180deg,#eaf4ff 0%,#f4f8ff 100%)}
+.step-card,.feature-card,.coach-card,.challenge-card{box-shadow:0 12px 32px rgba(30,64,105,.07);transition:transform .2s ease,box-shadow .2s ease}
+.step-card:hover,.feature-card:hover,.coach-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(30,64,105,.12)}
+.coach-card>img{height:240px;object-fit:cover;object-position:center 18%}
+.coach-card>div{padding:17px}
+.coach-card p{font-size:14px}
+.challenge-card{border-radius:26px}
+.challenge-card>img{aspect-ratio:1.62}
+.share-examples img{border-radius:18px}
+.site-footer{background:linear-gradient(135deg,#102a49,#0b1f38)}
+.page-hero{padding-block:70px 38px}
+.page-hero h1{font-size:clamp(42px,6vw,72px);line-height:1.02}
+.page-hero>p{font-size:18px}
+.page-hero-actions{margin-top:22px;display:flex;justify-content:center;flex-wrap:wrap;gap:11px}
+.flow-section{padding-block:20px 70px}
+.flow-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.flow-card{position:relative;min-height:232px;padding:26px;border:1px solid #dce7f4;border-radius:23px;background:linear-gradient(155deg,#fff,#f7faff);box-shadow:0 14px 36px rgba(27,59,99,.07)}
+.flow-number{position:absolute;top:19px;right:20px;color:#c5d9f2;font-size:27px;font-weight:950;letter-spacing:-.06em}
+.flow-card .eyebrow{margin:0 0 13px}
+.flow-card h3{margin:0 0 9px;font-size:22px;letter-spacing:-.04em}
+.flow-card p{margin:0;color:#63758b;font-size:15px;line-height:1.65}
+.discovery-map-section{padding-block:55px 85px;display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:clamp(35px,6vw,75px)}
+.discovery-map-copy h2,.feature-story h2,.milestone-copy h2{margin:0 0 15px;font-size:clamp(32px,4.4vw,48px);line-height:1.06;letter-spacing:-.055em}
+.discovery-map-copy h2 em,.group-story h2 em{color:var(--blue);font-style:normal}
+.discovery-map-copy>p:not(.eyebrow),.feature-story>div>p:not(.eyebrow),.milestone-copy>p:not(.eyebrow){color:#60748c;font-size:16px;line-height:1.7}
+.check-list{margin:18px 0 20px;padding:0;display:grid;gap:10px;list-style:none;color:#314d6e;font-size:15px}
+.check-list li{display:flex;gap:10px;align-items:flex-start}
+.check-list li:before{content:"✓";width:20px;height:20px;flex:0 0 20px;display:grid;place-items:center;color:#078c72;border-radius:50%;background:#e3f6ef;font-size:12px;font-weight:900}
+.text-link{display:inline-flex;align-items:center;gap:8px;color:#155ec9;font-size:14px;font-weight:850;text-underline-offset:4px}
+.discovery-map-card{overflow:hidden;margin:0;border:1px solid #dce7f4;border-radius:27px;background:#fff;box-shadow:0 22px 55px rgba(30,64,105,.13)}
+.discovery-map-card img{width:100%;aspect-ratio:1.2;object-fit:cover}
+.discovery-map-card figcaption{padding:17px 19px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.discovery-map-card figcaption span{display:grid;gap:3px}
+.discovery-map-card figcaption strong{font-size:15px}
+.discovery-map-card figcaption small{color:#75859a;font-size:12px}
+.discovery-map-card figcaption>b{color:#1769ff;font-size:19px;font-weight:950}
+.route-section{padding-block:75px;background:linear-gradient(180deg,#edf5ff,#f8fbff 80%);border-block:1px solid #e1ebf7}
+.route-banner{padding:clamp(22px,4vw,44px);display:grid;grid-template-columns:1fr .96fr;align-items:center;gap:clamp(24px,4vw,48px);border:1px solid #dbe7f5;border-radius:31px;background:#fff;box-shadow:0 22px 58px rgba(35,73,119,.09)}
+.route-copy h2{margin:0 0 13px;font-size:clamp(34px,4.5vw,49px);line-height:1.05;letter-spacing:-.055em}
+.route-copy h2 em{color:var(--blue);font-style:normal}
+.route-copy>p:not(.eyebrow){color:#62758c;font-size:16px;line-height:1.7}
+.route-copy strong{color:#1a3555}
+.route-preview{overflow:hidden;margin:0;padding:12px;border:1px solid #dbe7f5;border-radius:23px;background:#f6f9fc;box-shadow:0 10px 32px rgba(29,59,97,.08)}
+.route-preview-top{padding:2px 3px 10px;display:flex;justify-content:space-between;color:#2867c2;font-size:10px;font-weight:900;letter-spacing:.12em}
+.route-preview-top span:last-child{color:#71839a}
+.route-preview img{width:100%;height:auto;aspect-ratio:1.15;object-fit:cover;border-radius:15px}
+.route-preview figcaption{padding:10px 4px 1px;display:flex;align-items:center;gap:8px;color:#526781;font-size:12px;font-weight:750}
+.route-live-dot{width:8px;height:8px;border-radius:50%;background:#27b895;box-shadow:0 0 0 4px #e2f6f1}
+.route-guidance{margin-top:20px;padding:14px 15px;display:flex;align-items:center;gap:12px;border:1px solid #d7e7fc;border-radius:17px;background:#f3f8ff}
+.route-guidance-icon,.guidance-crosshair{width:39px;height:39px;flex:0 0 39px;display:grid;place-items:center;color:#1a67e8;border-radius:13px;background:#fff;font-size:27px;font-weight:700;box-shadow:0 3px 11px rgba(28,91,173,.08)}
+.route-guidance span:last-child{display:grid;gap:2px}
+.route-guidance strong{color:#1c3b60;font-size:14px}
+.route-guidance small{color:#657891;font-size:12px;line-height:1.4}
+.route-options{margin-top:17px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.route-option{padding:19px;display:flex;align-items:flex-start;gap:13px;border:1px solid #dce7f3;border-radius:19px;background:rgba(255,255,255,.9);box-shadow:0 8px 22px rgba(36,70,111,.045)}
+.route-option-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;color:#1769ff;border-radius:14px;background:#eaf3ff}
+.route-option-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.route-option-icon strong,.route-gpx{font-size:13px;font-weight:950}
+.route-option-label{color:#3480e7;font-size:10px;font-weight:950;letter-spacing:.12em}
+.route-option h3{margin:3px 0 6px;color:#1b2d45;font-size:17px;letter-spacing:-.03em}
+.route-option p{margin:0;color:#687a90;font-size:13px;line-height:1.55}
+.route-explainer{padding-block:74px;background:#f8fbff}
+.route-options-light{margin-top:28px}
+.guidance-banner{margin-top:15px;padding:17px 20px;display:flex;align-items:center;gap:14px;border:1px solid #cfe1f7;border-radius:19px;background:linear-gradient(100deg,#eaf4ff,#f8fbff)}
+.guidance-banner>div{display:grid;gap:3px}
+.guidance-banner strong{color:#1c3a5d;font-size:15px}
+.guidance-banner p{margin:0;color:#63768d;font-size:14px}
+.feature-story{padding-block:76px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px}
+.story-coaches{height:290px;display:flex;align-items:center;justify-content:center;gap:12px}
+.story-coaches img{width:30%;height:250px;object-fit:cover;object-position:center 18%;border:5px solid #fff;border-radius:22px;box-shadow:0 17px 37px rgba(27,58,96,.13)}
+.story-coaches img:nth-child(2){height:282px;transform:translateY(-8px)}
+.group-story{padding-block:72px;background:#edf5ff;border-block:1px solid #e0eaf6}
+.group-story-inner{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:46px}
+.group-story h2{margin:0 0 14px;font-size:clamp(31px,4.1vw,45px);line-height:1.07;letter-spacing:-.05em}
+.group-story-inner>div>p:not(.eyebrow){color:#60748c;font-size:16px;line-height:1.7}
+.group-story-map{overflow:hidden;margin:0;border:1px solid #d9e6f4;border-radius:24px;background:#fff;box-shadow:0 18px 44px rgba(29,62,101,.11)}
+.group-story-map img{width:100%;aspect-ratio:1.54;object-fit:cover}
+.group-story-map figcaption{padding:13px 17px;color:#536981;font-size:13px;font-weight:850}
+.coach-detail-premium{padding-block:28px 82px;display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;gap:clamp(35px,6vw,76px)}
+.coach-showcase{position:relative;height:440px;overflow:hidden;border:1px solid #d9e5f3;border-radius:31px;background:linear-gradient(150deg,#eaf4ff,#c9def7);box-shadow:0 24px 58px rgba(30,68,117,.13)}
+.coach-showcase-glow{position:absolute;inset:0;background:radial-gradient(circle at 55% 24%,rgba(255,255,255,.85),transparent 50%)}
+.coach-showcase>img{position:absolute;inset:auto 4% 0;width:92%;height:92%;object-fit:contain;object-position:center bottom}
+.coach-caption{position:absolute;left:19px;bottom:19px;min-width:170px;padding:13px 16px;display:grid;border:1px solid rgba(255,255,255,.8);border-radius:16px;background:rgba(255,255,255,.91);backdrop-filter:blur(10px);box-shadow:0 7px 25px rgba(19,46,79,.1)}
+.coach-caption .eyebrow{margin:0 0 2px;font-size:9px}
+.coach-caption strong{color:#172d49;font-size:19px}
+.coach-caption small{color:#667a92;font-size:12px}
+.coach-steps-copy h2{margin:0 0 14px;font-size:clamp(32px,4vw,45px);line-height:1.07;letter-spacing:-.055em}
+.coach-steps-copy ol{margin-top:23px}
+.coach-roster{padding-block:68px 80px;background:#f0f6ff;border-block:1px solid #e0eaf6}
+.coach-roster-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.coach-roster-card{overflow:hidden;border:1px solid #dbe6f3;border-radius:21px;background:#fff;box-shadow:0 12px 30px rgba(29,62,101,.07);transition:transform .2s ease,box-shadow .2s ease}
+.coach-roster-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(29,62,101,.13)}
+.coach-roster-card img{width:100%;height:225px;object-fit:cover;object-position:center 18%;background:#eaf3fc}
+.coach-roster-card>div{padding:16px}
+.coach-roster-card h3{margin:0;font-size:19px}
+.coach-roster-card span{display:block;margin-top:4px;color:#236ad2;font-size:12px;font-weight:850}
+.coach-roster-card p{margin:8px 0 0;color:#67798e;font-size:13px;line-height:1.5}
+.milestones-section{padding-block:75px;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:45px}
+.milestone-card{padding:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;border:1px solid #dbe7f5;border-radius:24px;background:#f2f7ff}
+.milestone-metric{min-height:106px;padding:16px;display:grid;align-content:center;gap:2px;border:1px solid #fff;border-radius:17px;background:#fff}
+.milestone-metric strong{color:#1769ff;font-size:25px;font-weight:950;letter-spacing:-.05em}
+.milestone-metric span{color:#6a7c92;font-size:12px;font-weight:750}
+.android-beta-pill{margin:19px auto 0;padding:9px 13px;display:inline-flex;color:#285990;border:1px solid #d5e5f6;border-radius:999px;background:#fff;font-size:13px;font-weight:800}
+.android-layout{padding-block:20px 75px;display:grid;grid-template-columns:.83fr 1.17fr;align-items:start;gap:clamp(25px,5vw,62px)}
+.android-download-card{position:sticky;top:105px;padding:29px;border:1px solid #d7e5f5;border-radius:25px;background:linear-gradient(150deg,#fff,#f2f7ff);box-shadow:0 17px 42px rgba(31,67,111,.09)}
+.download-icon{width:49px;height:49px;margin-bottom:18px;display:grid;place-items:center;color:#1769ff;border-radius:15px;background:#e8f2ff}
+.download-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.android-download-card h2{margin:0 0 9px;font-size:28px;letter-spacing:-.04em}
+.android-download-card>p:not(.eyebrow){margin-bottom:19px;color:#62758b;font-size:15px;line-height:1.65}
+.android-download-card>small{display:block;margin-top:11px;color:#7a8a9d;font-size:12px}
+.android-steps>.section-heading{margin:0 0 18px}
+.android-step{margin-bottom:11px;padding:19px;display:flex;align-items:flex-start;gap:14px;border:1px solid #dbe6f3;border-radius:18px;background:#fff;box-shadow:0 8px 21px rgba(31,67,111,.045)}
+.android-step>span{width:31px;height:31px;flex:0 0 31px;display:grid;place-items:center;color:#1c64cc;border-radius:11px;background:#eaf3ff;font-weight:950}
+.android-step h3{margin:1px 0 5px;font-size:16px;letter-spacing:-.025em}
+.android-step p{margin:0;color:#64768b;font-size:14px;line-height:1.6}
+.android-notes{padding-block:42px;background:#eaf4ff;border-block:1px solid #dfeaf7}
+.android-note-inner{display:flex;align-items:flex-start;gap:15px}
+.note-symbol{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;color:#1d64c8;border-radius:50%;background:#fff;font-weight:950}
+.android-note-inner h2{margin:0 0 6px;font-size:20px}
+.android-note-inner p{margin:0;color:#5f748e;font-size:14px;line-height:1.65}
+.android-help-links{margin-top:12px;display:flex;gap:19px}
+.legal-page .site-header,.product-page .site-header{z-index:40}
+.information-page{min-height:60vh}
+.legal-hero{padding-block:55px 25px}
+.page-contents{box-shadow:0 8px 22px rgba(30,64,105,.05)}
+.legal-body{box-shadow:0 19px 50px rgba(30,64,105,.07)}
+.support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.support-card{padding:20px;border:1px solid #dce7f3;border-radius:19px;background:#fff;box-shadow:0 10px 28px rgba(29,62,101,.06)}
+.support-card h2,.support-card h3{margin:0 0 8px;font-size:19px}
+.support-card p{color:#65768a;line-height:1.6}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+@media(max-width:900px){
+ .navigation{gap:12px}.navigation nav{gap:12px;font-size:12px}
+ .hero{min-height:auto;padding-block:65px 72px}
+ .route-banner{grid-template-columns:1fr .9fr;gap:22px}
+ .coach-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .android-layout{grid-template-columns:1fr 1.15fr;gap:22px}
+}
+@media(max-width:700px){
+ .navigation{display:grid;grid-template-columns:1fr auto;min-height:0;padding-block:11px 8px;gap:8px}
+ .navigation .brand{grid-column:1;grid-row:1;width:165px;flex-basis:165px}
+ .navigation .nav-button{grid-column:2;grid-row:1;min-height:40px;padding-inline:13px;font-size:12px}
+ .navigation nav{grid-column:1/-1;grid-row:2;order:initial;width:100%;padding:7px 0 2px;display:flex;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;gap:8px}
+ .navigation nav::-webkit-scrollbar{display:none}
+ .navigation nav a{padding:6px 9px;border:1px solid #e1eaf5;border-radius:999px;background:#fff;font-size:11px}
+ .hero{grid-template-columns:1fr;gap:28px;padding-block:46px 58px}
+ .hero h1{font-size:clamp(57px,14vw,78px)}
+ .hero-lead{font-size:16px}
+ .hero-visual{max-width:540px;width:100%;margin-inline:auto}
+ .steps-section,.coach-section{padding-block:56px}
+ .steps-grid,.feature-grid,.flow-grid,.route-options{grid-template-columns:1fr;gap:10px}
+ .features-section,.challenge-section,.faq-section{padding-block:57px}
+ .coach-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .coach-card>img{height:185px}
+ .challenge-section,.share-inner,.faq-section,.route-banner,.discovery-map-section,.coach-detail-premium,.feature-story,.group-story-inner,.milestones-section,.android-layout{grid-template-columns:1fr;gap:24px}
+ .route-section,.route-explainer{padding-block:52px}
+ .route-banner{padding:19px;border-radius:24px}
+ .route-option{padding:16px}
+ .route-preview img{aspect-ratio:1.2}
+ .discovery-map-section{padding-block:42px 60px}
+ .discovery-map-card{max-width:570px;width:100%;margin-inline:auto}
+ .feature-story,.milestones-section{padding-block:55px}
+ .story-coaches{height:230px}
+ .story-coaches img{height:190px}
+ .story-coaches img:nth-child(2){height:218px}
+ .group-story{padding-block:52px}
+ .coach-detail-premium{padding-block:13px 55px}
+ .coach-showcase{height:380px}
+ .coach-roster{padding-block:52px}
+ .coach-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .coach-roster-card img{height:185px}
+ .android-download-card{position:static}
+ .android-layout{padding-block:20px 55px}
+ .android-step{padding:16px}
+ .footer-top{grid-template-columns:1fr 1fr;gap:23px 15px}
+ .footer-brand{grid-column:1/-1}
+ .download-card{grid-template-columns:1fr}
+ .download-actions{min-width:0}
+ .privacy-inner{grid-template-columns:46px 1fr}
+}
+@media(max-width:420px){
+ .wrap{width:min(100% - 30px,1160px)}
+ .hero-actions .button{width:100%}
+ .page-hero{padding-top:43px}
+ .page-hero h1{font-size:clamp(40px,11.3vw,54px)}
+ .page-hero-actions .button{width:100%}
+ .coach-roster-card img{height:157px}
+ .coach-roster-card>div{padding:12px}
+ .coach-roster-card p{font-size:12px}
+ .story-coaches{gap:6px}
+ .route-copy h2,.discovery-map-copy h2,.feature-story h2{font-size:32px}
+ .footer-bottom{align-items:flex-start;padding-block:12px}
+}
