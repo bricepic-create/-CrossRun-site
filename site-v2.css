@@ -434,3 +434,15 @@ body.site-v2,body.product-page,body.legal-page{background:#f7faff;color:var(--in
 .discovery-guidance .guidance-banner{margin:0}
 @media(max-width:840px){.app-feature-story,.discovery-guidance{grid-template-columns:minmax(0,1fr);gap:20px}.app-feature-story>.story-copy{order:-1}.app-feature-visual{max-width:660px;justify-self:center}.coach-program-intro{padding:0}.discovery-guidance .guidance-banner{order:-1}}
 @media(max-width:500px){.app-feature-visual{border-radius:17px}.app-feature-visual figcaption{font-size:.82rem;padding:9px 12px}}
+
+/* Real CrossRun screenshots explain route preparation and GPS guidance */
+.route-banner{grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);align-items:center}
+.route-screen-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;align-items:start}
+.route-screen-card{min-width:0;margin:0;padding:11px;border:1px solid #dce7f4;border-radius:22px;background:#fff;box-shadow:0 14px 32px rgba(31,67,116,.09)}
+.route-screen-tag{min-height:30px;padding:3px 3px 8px;display:flex;align-items:center;color:#2868c9;font-size:10px;font-weight:900;letter-spacing:.09em}
+.route-screen-card>img{width:100%;height:410px;object-fit:contain;object-position:top center;border-radius:14px;background:#eaf3ff}
+.route-screen-card figcaption{padding:12px 3px 3px;display:grid;gap:4px}
+.route-screen-card figcaption strong{color:#14243a;font-size:14px}
+.route-screen-card figcaption small{color:#63758d;font-size:12px;line-height:1.45}
+@media(max-width:900px){.route-banner{grid-template-columns:1fr}.route-screen-pair{width:min(660px,100%);justify-self:center}}
+@media(max-width:520px){.route-screen-pair{gap:8px}.route-screen-card{padding:7px;border-radius:16px}.route-screen-tag{font-size:8px;letter-spacing:.04em}.route-screen-card>img{height:300px;border-radius:11px}.route-screen-card figcaption{padding-top:9px}.route-screen-card figcaption strong{font-size:12px}.route-screen-card figcaption small{font-size:11px}}
