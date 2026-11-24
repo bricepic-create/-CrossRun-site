@@ -43,3 +43,18 @@ if (typeof lightbox.showModal === 'function') {
         event.clientY < bounds.top || event.clientY > bounds.bottom) lightbox.close();
   });
 }
+
+/* Enhance only when supported; the map is fully visible without JavaScript. */
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const artDemo = document.querySelector('.art-demo');
+  if (artDemo) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('is-entering');
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.3 });
+    observer.observe(artDemo);
+  }
+}

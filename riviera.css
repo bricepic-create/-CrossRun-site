@@ -131,3 +131,48 @@ dialog{border:0;border-radius:12px;background:#f5f7fa;color:var(--ink);padding:1
 .map figcaption{column-gap:clamp(12px,2vw,30px);row-gap:7px}
 .map-credit{flex-basis:100%;text-align:center;color:#536275;font-size:.73rem;font-weight:450;line-height:1.5}
 .map-credit a{text-underline-offset:2px}
+
+/* Landing refinements: concise copy, native artwork and a mobile sticky download action. */
+.intro-strip{background:#fff;border-bottom:1px solid #e2e8f0}
+.intro-inner{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:clamp(24px,5vw,70px);padding-block:clamp(34px,5vw,64px)}
+.intro-inner h2,.privacy-inner h2,.feature-panel h2,.personal h2,.sync-inner h2{font-size:clamp(2.9rem,5vw,5.3rem);margin-top:12px}
+.intro-inner p,.panel-copy>p:not(.kicker),.personal-copy>p:not(.kicker),.sync-inner p:not(.kicker):not(.fine){font-size:clamp(1.02rem,1.3vw,1.2rem);color:#34475c;line-height:1.6;max-width:47ch}
+.intro-inner h2{margin:0}
+.intro-inner strong{color:var(--ink)}
+.privacy-band{background:#f4f7fc;border-block:1px solid #dfe7f2}
+.privacy-inner,.sync-inner{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(26px,5vw,72px);align-items:center;padding-block:clamp(36px,5vw,68px)}
+.privacy-points{display:grid;gap:22px}
+.privacy-points article,.sync-options>div{display:flex;align-items:flex-start;gap:14px}
+.privacy-points svg,.sync-options svg{width:28px;height:28px;color:var(--blue);margin-top:2px}
+.privacy-points h3{font-size:1.1rem;line-height:1.25;margin-bottom:4px}
+.privacy-points p{color:#34475c;max-width:46ch}
+.privacy-points .text-link{color:var(--blue)}
+.feature-panel{display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:clamp(26px,4vw,60px);border-top:1px solid #c6d1df;margin-top:clamp(36px,5vw,78px);padding-top:clamp(32px,4vw,60px)}
+.panel-copy>p:not(.kicker),.personal-copy>p:not(.kicker),.sync-inner p:not(.kicker):not(.fine){margin-top:18px}
+.art-steps{display:grid;gap:8px;list-style:none;counter-reset:art;margin:20px 0 0;padding:0;color:#34475c;font-weight:600}
+.art-steps li{counter-increment:art;display:flex;align-items:center;gap:10px}
+.art-steps li::before{content:counter(art);display:grid;place-items:center;flex:none;width:26px;height:26px;border-radius:50%;background:#d5e3ff;color:#173bc6;font-size:.85rem;font-weight:800}
+.art-demo{overflow:hidden;border:1px solid #ccd9e8;background:#fff;border-radius:12px;padding:clamp(12px,2vw,22px);min-width:0}
+svg.art-map{display:block;width:100%;height:auto;stroke:initial;stroke-width:initial;overflow:visible}
+.art-demo figcaption,.avatar-examples figcaption{font-size:.82rem;color:#536275;margin-top:10px;line-height:1.45;text-align:center}
+.art-demo.is-entering .art-route{animation:art-draw 1.2s ease-out both}
+@keyframes art-draw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+.personal{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(25px,5vw,70px);align-items:center}
+.avatar-examples{min-width:0}
+.avatar-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;align-items:end}
+.avatar-grid img{width:100%;aspect-ratio:1;object-fit:contain;object-position:center bottom;background:linear-gradient(150deg,#eef3fa,#dbe6f7);border-radius:12px;padding:7px 7px 0}
+.sync-band{background:#f4f7fc;border-top:1px solid #dfe7f2}
+.sync-options{display:grid;gap:14px}
+.sync-options>div{padding:18px;background:#fff;border:1px solid #d7e1ee;border-radius:10px;align-items:center}
+.sync-options strong,.sync-options small{display:block}
+.sync-options small{color:#536275;font-size:.86rem;margin-top:2px}
+@media(max-width:760px){
+ .mast{position:sticky;top:0;z-index:10;background:#fff;padding-top:env(safe-area-inset-top,0px)}
+ :root{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+ .intro-inner,.privacy-inner,.feature-panel,.personal,.sync-inner{grid-template-columns:1fr;gap:22px}
+ .intro-inner,.privacy-inner,.sync-inner{padding-block:36px}
+ .avatar-grid{gap:8px}
+ .avatar-grid img{border-radius:8px;padding:4px 4px 0}
+ .sync-options>div{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){.art-demo.is-entering .art-route{animation:none!important}}
