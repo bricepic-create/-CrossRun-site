@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -37,12 +38,34 @@ jobs:
       # upload-pages-artifact@v4 excludes hidden paths, including .well-known.
       # Upload our verified tar using the same Pages artifact contract.
       - name: Upload site
+        id: upload
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: github-pages-${{ github.run_attempt }}
           path: ${{ runner.temp }}/artifact.tar
           retention-days: 1
           if-no-files-found: error
+
+      # The upload can finish before the Actions REST API lists the artifact.
+      # Wait only until this exact artifact is visible, instead of retrying a full run.
+      - name: Confirm uploaded Pages artifact is indexed
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: github-pages-${{ github.run_attempt }}
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+        run: |
+          set -euo pipefail
+          test -n "$ARTIFACT_ID"
+          for attempt in {1..10}; do
+            if gh api --method GET "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" -f name="$ARTIFACT_NAME" --jq '.artifacts[] | select(.expired == false) | .id' | grep -Fx "$ARTIFACT_ID"; then
+              echo 'Pages artifact is indexed.'
+              exit 0
+            fi
+            if [[ "$attempt" != 10 ]]; then sleep 3; fi
+          done
+          echo '::error::Uploaded Pages artifact is not visible in the Actions API.'
+          exit 1
 
       - name: Deploy to GitHub Pages
         id: deployment
