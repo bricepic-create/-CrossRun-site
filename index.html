@@ -58,6 +58,55 @@
     <section class="intro-strip" aria-labelledby="intro-title">
       <div class="wrap intro-inner"><h2 id="intro-title">Plus qu’une course.<br><em>Une nouvelle aventure.</em></h2><p>Enregistre tes runs, explore ta ville, relève des défis et retrouve les runners que tu as croisés. <strong>Tout dans une seule appli, 100 % gratuite.</strong></p></div>
     </section>
+    <section class="product" id="fonctionnalites" aria-labelledby="app-title">
+      <div class="wrap section">
+        <div class="app-feature" id="explorer">
+          <div class="app-copy">
+            <p class="kicker"><i class="slashes" aria-hidden="true"></i>Dans l’appli</p>
+            <h2 id="app-title">Ta ville,<br><em>au fil des runs.</em></h2>
+            <p>Retrouve tes tracés sur la carte classique. En vue illustrée, prends de la hauteur sur Cannes. Les rues que tu as parcourues apparaissent en couleur, les quartiers à découvrir restent dans l’ombre.</p>
+            <a class="text-link" href="#parcours">Préparer ma prochaine sortie</a>
+          </div>
+          <div class="screen-pair">
+            <figure><a class="screen zoom" href="assets/crossrun-capture-explorer-reel.webp?v=4" data-caption="Explorer classique · Cannes" aria-label="Agrandir Explorer classique"><img src="assets/crossrun-capture-explorer-reel.webp?v=4" alt="Explorer classique à Cannes, avec les rues et les traces des sorties." width="360" height="779" loading="lazy"></a><figcaption>Explorer classique</figcaption></figure>
+            <figure><a class="screen zoom" href="assets/explorer-illustre-baie.webp" data-caption="Explorer illustré · Cannes vue de haut" aria-label="Agrandir Explorer illustré"><img src="assets/explorer-illustre-baie.webp" alt="Cannes vue de haut, avec la Croisette et les rues explorées en couleur. Les quartiers alentour sont dans l’ombre." width="580" height="1254" loading="lazy"></a><figcaption>Explorer illustré</figcaption></figure>
+          </div>
+        </div>
+
+        <section class="expeditions" id="defis" aria-labelledby="exp-title">
+          <h2 id="exp-title">Les <em>expéditions.</em></h2>
+          <div class="exp-grid">
+            <a class="exp-card" href="expeditions/perso/">
+              <span class="exp-preview"><img src="assets/expedition-perso.webp" width="704" height="856" loading="lazy" alt="Aperçu de la progression dans une expédition personnelle."></span>
+              <div><h3>Expédition perso</h3><p>Choisis ton expédition et lance ton défi. Tu as jusqu’à 30 jours pour atteindre ta destination.</p><span class="text-link">Voir l’expédition perso</span></div>
+            </a>
+            <a class="exp-card" href="expeditions/groupe/">
+              <span class="exp-preview"><img src="assets/expedition-groupe.webp" width="704" height="856" loading="lazy" alt="Aperçu d’une expédition collective de Cannes à Marseille."></span>
+              <div><h3>Expédition en groupe</h3><p>Chacun court de son côté. Vos kilomètres s’additionnent sur le même parcours.</p><span class="text-link">Voir l’expédition en groupe</span></div>
+            </a>
+          </div>
+        </section>
+        <div class="features">
+          <article id="parcours"><a class="zoom" href="assets/gps.webp" data-caption="Exemple de guidage à la Croix des Gardes" aria-label="Agrandir l’exemple de guidage GPS"><img src="assets/gps.webp" width="1080" height="760" loading="lazy" alt="Exemple de boucle avec une indication de direction à la Croix des Gardes."></a><h3>Guidage GPS</h3><p>Trouve une boucle, trace ton parcours ou importe un GPX. Suis ensuite ton itinéraire pendant la sortie.</p></article>
+          <article id="progression"><a class="zoom" href="assets/coach.webp" data-caption="Lina et un exemple de semaine pour préparer un 10 km" aria-label="Agrandir l’exemple de programme"><img src="assets/coach.webp" width="1080" height="760" loading="lazy" alt="Lina et un exemple de semaine avec trois séances de course."></a><h3>Ton coach</h3><p>Choisis une distance et tes jours de course. Retrouve tes séances dans le calendrier pour préparer ton objectif.</p></article>
+        </div>
+        <section class="gps-art feature-panel" id="art-gps" aria-labelledby="art-title">
+          <div class="panel-copy"><p class="kicker"><i class="slashes" aria-hidden="true"></i>Art GPS · En bêta</p><h2 id="art-title">À toi de<br><em>dessiner.</em></h2><p>Transforme une sortie en création. Imagine ton propre dessin sur la carte, prépare ton parcours sur les rues et chemins, puis réalise-le en courant.</p><ol class="art-steps"><li>Crée ton dessin</li><li>Prépare ton itinéraire ou importe un GPX</li><li>Fais vivre ton dessin avec tes kilomètres</li></ol></div>
+          <figure class="art-demo" aria-labelledby="art-caption">
+            <svg class="art-map" viewBox="0 0 520 342" role="img" aria-label="Schéma de principe : une trace bleue en forme de cœur suit les rues d’une carte stylisée. Ce n’est pas un itinéraire réel.">
+              <rect width="520" height="342" rx="18" fill="#eaf1f7"/>
+              <g stroke="#d6e2ec" stroke-width="22" fill="none"><path d="M0 50H520M0 110H520M0 170H520M0 230H520M0 290H520M60 0V342M140 0V342M220 0V342M300 0V342M380 0V342M460 0V342"/><path d="M0 150 150 0M150 342 490 2M350 342 520 172M140 170 260 290 380 170"/></g>
+              <g stroke="#fff" stroke-width="13" fill="none"><path d="M0 50H520M0 110H520M0 170H520M0 230H520M0 290H520M60 0V342M140 0V342M220 0V342M300 0V342M380 0V342M460 0V342"/><path d="M0 150 150 0M150 342 490 2M350 342 520 172M140 170 260 290 380 170"/></g>
+              <path d="M140 110V50H220V110H300V50H380V170L300 250L260 290L220 250L140 170Z" fill="none" stroke="#c2d3ff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="art-route" d="M140 110V50H220V110H300V50H380V170L300 250L260 290L220 250L140 170Z" pathLength="1" fill="none" stroke="#173fec" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="140" cy="110" r="8" fill="#173fec" stroke="#fff" stroke-width="3"/>
+            </svg>
+            <figcaption id="art-caption">Schéma de principe · Imagine ton propre dessin, pas un parcours imposé.</figcaption>
+          </figure>
+        </section>
+
+      </div>
+    </section>
     <section id="principe" class="wrap section meet" aria-labelledby="meet-title">
       <div class="meet-heading"><p class="kicker"><i class="slashes" aria-hidden="true"></i>Le croisement</p><h2 id="meet-title">Un bout de chemin<br><em>en commun.</em></h2></div>
       <div class="meet-text">
@@ -82,59 +131,12 @@
         <button class="btn white" id="demo-action" type="button" hidden><svg aria-hidden="true"><use href="#wave-icon"/></svg><span>Essayer le Wave avec Lina</span></button>
       </div>
     </section>
-    <section class="product" id="fonctionnalites" aria-labelledby="app-title">
-      <div class="wrap section">
-        <div class="app-feature" id="explorer">
-          <div class="app-copy">
-            <p class="kicker"><i class="slashes" aria-hidden="true"></i>Dans l’appli</p>
-            <h2 id="app-title">Ta ville,<br><em>au fil des runs.</em></h2>
-            <p>Retrouve tes tracés sur la carte classique. En vue illustrée, prends de la hauteur sur Cannes. Les rues que tu as parcourues apparaissent en couleur, les quartiers à découvrir restent dans l’ombre.</p>
-            <a class="text-link" href="#parcours">Préparer ma prochaine sortie</a>
-          </div>
-          <div class="screen-pair">
-            <figure><a class="screen zoom" href="assets/crossrun-capture-explorer-reel.webp?v=4" data-caption="Explorer classique · Cannes" aria-label="Agrandir Explorer classique"><img src="assets/crossrun-capture-explorer-reel.webp?v=4" alt="Explorer classique à Cannes, avec les rues et les traces des sorties." width="360" height="779" loading="lazy"></a><figcaption>Explorer classique</figcaption></figure>
-            <figure><a class="screen zoom" href="assets/explorer-illustre-baie.webp" data-caption="Explorer illustré · Cannes vue de haut" aria-label="Agrandir Explorer illustré"><img src="assets/explorer-illustre-baie.webp" alt="Cannes vue de haut, avec la Croisette et les rues explorées en couleur. Les quartiers alentour sont dans l’ombre." width="580" height="1254" loading="lazy"></a><figcaption>Explorer illustré</figcaption></figure>
-          </div>
-        </div>
-        <div class="features">
-          <article id="parcours"><a class="zoom" href="assets/gps.webp" data-caption="Exemple de guidage à la Croix des Gardes" aria-label="Agrandir l’exemple de guidage GPS"><img src="assets/gps.webp" width="1080" height="760" loading="lazy" alt="Exemple de boucle avec une indication de direction à la Croix des Gardes."></a><h3>Guidage GPS</h3><p>Trouve une boucle, trace ton parcours ou importe un GPX. Suis ensuite ton itinéraire pendant la sortie.</p></article>
-          <article id="progression"><a class="zoom" href="assets/coach.webp" data-caption="Lina et un exemple de semaine pour préparer un 10 km" aria-label="Agrandir l’exemple de programme"><img src="assets/coach.webp" width="1080" height="760" loading="lazy" alt="Lina et un exemple de semaine avec trois séances de course."></a><h3>Ton coach</h3><p>Choisis une distance et tes jours de course. Retrouve tes séances dans le calendrier pour préparer ton objectif.</p></article>
-        </div>
-        <section class="gps-art feature-panel" id="art-gps" aria-labelledby="art-title">
-          <div class="panel-copy"><p class="kicker"><i class="slashes" aria-hidden="true"></i>Art GPS · En bêta</p><h2 id="art-title">À toi de<br><em>dessiner.</em></h2><p>Transforme une sortie en création. Imagine ton propre dessin sur la carte, prépare ton parcours sur les rues et chemins, puis réalise-le en courant.</p><ol class="art-steps"><li>Crée ton dessin</li><li>Prépare ton itinéraire ou importe un GPX</li><li>Fais vivre ton dessin avec tes kilomètres</li></ol></div>
-          <figure class="art-demo" aria-labelledby="art-caption">
-            <svg class="art-map" viewBox="0 0 520 342" role="img" aria-label="Schéma de principe : une trace bleue en forme de cœur suit les rues d’une carte stylisée. Ce n’est pas un itinéraire réel.">
-              <rect width="520" height="342" rx="18" fill="#eaf1f7"/>
-              <g stroke="#d6e2ec" stroke-width="22" fill="none"><path d="M0 50H520M0 110H520M0 170H520M0 230H520M0 290H520M60 0V342M140 0V342M220 0V342M300 0V342M380 0V342M460 0V342"/><path d="M0 150 150 0M150 342 490 2M350 342 520 172M140 170 260 290 380 170"/></g>
-              <g stroke="#fff" stroke-width="13" fill="none"><path d="M0 50H520M0 110H520M0 170H520M0 230H520M0 290H520M60 0V342M140 0V342M220 0V342M300 0V342M380 0V342M460 0V342"/><path d="M0 150 150 0M150 342 490 2M350 342 520 172M140 170 260 290 380 170"/></g>
-              <path d="M140 110V50H220V110H300V50H380V170L300 250L260 290L220 250L140 170Z" fill="none" stroke="#c2d3ff" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
-              <path class="art-route" d="M140 110V50H220V110H300V50H380V170L300 250L260 290L220 250L140 170Z" pathLength="1" fill="none" stroke="#173fec" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="140" cy="110" r="8" fill="#173fec" stroke="#fff" stroke-width="3"/>
-            </svg>
-            <figcaption id="art-caption">Schéma de principe · Imagine ton propre dessin, pas un parcours imposé.</figcaption>
-          </figure>
-        </section>
-        <section class="expeditions" id="defis" aria-labelledby="exp-title">
-          <h2 id="exp-title">Les <em>expéditions.</em></h2>
-          <div class="exp-grid">
-            <a class="exp-card" href="expeditions/perso/">
-              <span class="exp-preview"><img src="assets/expedition-perso.webp" width="704" height="856" loading="lazy" alt="Aperçu de la progression dans une expédition personnelle."></span>
-              <div><h3>Expédition perso</h3><p>Choisis ton expédition et lance ton défi. Tu as jusqu’à 30 jours pour atteindre ta destination.</p><span class="text-link">Voir l’expédition perso</span></div>
-            </a>
-            <a class="exp-card" href="expeditions/groupe/">
-              <span class="exp-preview"><img src="assets/expedition-groupe.webp" width="704" height="856" loading="lazy" alt="Aperçu d’une expédition collective de Cannes à Marseille."></span>
-              <div><h3>Expédition en groupe</h3><p>Chacun court de son côté. Vos kilomètres s’additionnent sur le même parcours.</p><span class="text-link">Voir l’expédition en groupe</span></div>
-            </a>
-          </div>
-        </section>
-      </div>
-    </section>
     <section class="share-band" id="partager" aria-labelledby="share-title">
       <div class="wrap section share">
         <div class="share-copy">
           <p class="kicker"><i class="slashes" aria-hidden="true"></i>Différentes cartes à partager</p>
           <h2 id="share-title">Ton run<br><em>à la carte.</em></h2>
-          <p>Après ta course, choisis le style qui te plaît. Personnalise ton avatar dans l’appli et ajoute-le à ton visuel si tu le souhaites. Voici quelques exemples pour une même sortie de 5,32 km sur la Croisette.</p>
+          <p>Après ta course, choisis le style qui te plaît. Voici plusieurs cartes pour une même sortie de 5,32 km sur la Croisette.</p>
         </div>
         <figure class="share-stack">
           <a class="zoom" href="assets/cartes-fin-couleur-hd.webp" data-caption="Solar, Horizon, Run City et Run Color · Cannes, 5,32 km" aria-label="Agrandir les quatre cartes de la même sortie à Cannes">
